@@ -1,0 +1,46 @@
+.card{
+    width: 180px;
+    height: 320px;
+    
+    font-family: Arial, Helvetica, sans-serif;
+}
+.card .image{
+    width: 100%;
+    height: 200px;
+}
+.card .image img{
+    max-width: 100%;
+    height: 190px;
+    margin-top: 5px;
+    object-fit: cover;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card .titulo{
+    width: 90%;
+    height:80px;
+    font-size: 17px;
+    margin-left: 5%;
+}
+.card .titulo p{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    text-align: justify;
+}
+.card .preco{
+    width: 100%;
+    height:40px;
+    font-size: 20px;
+}
+.card .preco h4{
+    margin: 0px;
+}
