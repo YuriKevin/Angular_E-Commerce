@@ -1,0 +1,166 @@
+.container{
+    width: 900px;
+    min-height: 700px;
+    height: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+}
+.main{
+    width: 100%;
+}
+.center{
+    display: flex;
+    align-items: center;;
+    justify-content: center;
+}
+.container .principal{
+    width: 65%;
+    height: 500px;
+    display: flex;
+}
+.container .principal .imagens-pequenas{
+    height: 100%;
+    width: 10%;
+}
+.container .principal .imagens{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between; 
+}
+.container .principal .imagens .quadrado{
+    width: 40px;
+    height: 40px;
+    background-color: grey;
+}
+.container .principal .imagens .quadrado img{
+    width: 100%;
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.container .principal .imagem-grande{
+    width: 90%;
+    height: 100%;
+}
+.container .principal .imagem-grande img{
+    width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+.container .infos{
+    width: 35%;
+    height: auto;
+}
+.container .infos > *{
+    width: 100%;
+    justify-content: flex-start;
+}
+.container .infos .titulo{
+    height: auto;
+    margin-top: 20%;
+}
+.container .infos .titulo h1{
+    font-size: 25px;
+    margin: 0px;
+    
+}
+.container .infos .entregue{
+    height: 30px;
+}
+
+.container .infos .avaliacao{
+    height: 50px;
+    margin-top: 10px;
+}
+.container .infos .avaliacao img{
+    margin-right: 5px;
+}
+.container .infos .avaliacao p{
+    margin-left: 5px;
+}
+.container .infos .preco{
+    height: 70px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.container .infos .icones{
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icones > *{
+    width: 33%;
+    height: auto;
+}
+.icone-descricao > *{
+    display: block;
+}
+.container .infos .icone-descricao .descricao{
+    text-align:center;
+    margin: 1.5%;
+}
+
+.container .infos .icones img{
+    margin-left: 35%;
+    width: 30%;
+    height: auto;
+}
+.detalhes{
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+}
+.detalhes .titulo{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+}
+.detalhes .titulo h2{
+    margin: 0px;
+}
+.especificacoes{
+    min-height: 50px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+}
+.especificacoes .nome{
+    width: 30%;
+    min-height: 50px;
+    height: auto;
+    background-color: rgb(200, 199, 199);
+
+    border: 1px solid black;
+}
+.especificacoes .descricao{
+    width: 70%;
+    min-height: 50px;
+    height: auto;
+    justify-content: flex-start;
+    border: 1px solid black;
+}
+.especificacoes .nome p{
+    margin:5px
+}
+.especificacoes .descricao p{
+    margin:5px
+}
+@media (max-width: 900px) {
+    .container{
+        width: 95%;
+        margin-left: 2.5%;
+    }
+    .container .principal{
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+}
