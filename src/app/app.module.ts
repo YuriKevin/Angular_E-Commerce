@@ -1,26 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './modules/produto/home/home.component';
 import { ProdutoComponent } from './modules/produto/produto/produto.component';
-import { SecaoComponent } from './shared/secao/secao.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { SharedModule } from './shared/shared.module';
+import { ListarComponent } from './modules/produto/listar/listar.component';
+import { EspecificacoesComponent } from './modules/produto/especificacoes/especificacoes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     HomeComponent,
     ProdutoComponent,
-    SecaoComponent,
-    FooterComponent
+    ListarComponent,
+    EspecificacoesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
