@@ -1,0 +1,73 @@
+.container{
+    display: block;
+    min-height: 80vh;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.flex{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin-top: 40px;
+}
+.pesquisar h1{
+    margin: 0px;
+    font-size: 25px;
+}
+.pesquisar input{
+    margin-left: 10px;
+    width: 250px;
+    height: 30px;
+    border: 1px solid black;
+}
+.pesquisar button{
+    width: 100px;
+    height: 35px;
+    background-color: #171592;
+    color: white;
+    margin-left: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.paginacao{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.paginacao button{
+    width: 90px;
+    height: 50px;
+    background-color: #121077;
+    color: white;
+    border-radius: 10px;
+}
+.paginacao p{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media (max-width: 625px) {
+    .pesquisar{
+        width: 100%;
+        display: block;
+        margin-top: 20px;
+    }
+    .pesquisar h1{
+        margin-bottom: 20px;
+        font-size: 17px;
+    }
+    .pesquisar button{
+        margin-left: 1px;
+        width: 25%;
+    }
+    .pesquisar input{
+        width: 70%;
+        margin-left: 1px;
+    }
+
+}
