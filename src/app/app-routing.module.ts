@@ -9,6 +9,8 @@ import { ListarComponent } from './modules/produto/listar/listar.component';
 import { EspecificacoesComponent } from './modules/produto/especificacoes/especificacoes.component';
 import { ListarLojasComponent } from './modules/loja/listar-lojas/listar-lojas.component';
 import { LojaComponent } from './modules/loja/loja/loja.component';
+import { CadastrarLojaComponent } from './modules/loja/cadastrar-loja/cadastrar-loja.component';
+import { CadastrarProdutoComponent } from './modules/loja/cadastrar-produto/cadastrar-produto.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'especificacoes', component: EspecificacoesComponent},
   { path: 'loja', component: LojaComponent},
   { path: 'listarLojas', component: ListarLojasComponent},
+  { path: 'cadastrarLoja', component: CadastrarLojaComponent},
+  { path: 'cadastrarProduto', component: CadastrarProdutoComponent},
 ];
 
 @NgModule({
