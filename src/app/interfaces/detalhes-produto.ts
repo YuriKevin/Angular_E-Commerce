@@ -1,5 +1,5 @@
 export interface DetalhesProduto {
-    id:number;
+    id:number | null;
     titulo: string;
     descricao: string;
 }
