@@ -7,6 +7,8 @@ import { ProdutoComponent } from './modules/produto/produto/produto.component';
 import { SharedModule } from './shared/shared.module';
 import { ListarComponent } from './modules/produto/listar/listar.component';
 import { EspecificacoesComponent } from './modules/produto/especificacoes/especificacoes.component';
+import { ListarLojasComponent } from './modules/loja/listar-lojas/listar-lojas.component';
+import { LojaComponent } from './modules/loja/loja/loja.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { EspecificacoesComponent } from './modules/produto/especificacoes/especi
     HomeComponent,
     ProdutoComponent,
     ListarComponent,
-    EspecificacoesComponent
+    EspecificacoesComponent,
+    ListarLojasComponent,
+    LojaComponent
   ],
   imports: [
     BrowserModule,
