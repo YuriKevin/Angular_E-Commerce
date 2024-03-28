@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container">
+    <div class="geral">
+        <div class="titulo">
+            <h1>Cadastrar loja</h1>
+        </div>
+        <div class="cadastro">
+            <div class="campo">
+                <h2>Código de login</h2>
+                <input type="number">
+            </div>
+            <div class="campo">
+                <h2>Nome</h2>
+                <input type="text">
+            </div>
+            <div class="campo">
+                <h2>Senha</h2>
+                <input type="text">
+            </div>
+            <div class="campo">
+                <h2>Confirmar senha</h2>
+                <input type="text">
+            </div>
+            <div class="logo">
+                <div class="input-logo center">
+                    <label for="fileInput" class="label-customizada">
+                        Selecionar logo da loja
+                    </label>
+                    <input  id="fileInput" type="file" (change)="transformarLogoStringBase64($event)" hidden>
+                </div>
+                <div class="imagem">
+                    <img *ngIf="logo" [src]="logo">
+                </div>
+            </div>
+            <div class="confirmar">
+                <button>Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
