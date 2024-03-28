@@ -9,7 +9,9 @@ import { ListarComponent } from './modules/produto/listar/listar.component';
 import { EspecificacoesComponent } from './modules/produto/especificacoes/especificacoes.component';
 import { ListarLojasComponent } from './modules/loja/listar-lojas/listar-lojas.component';
 import { LojaComponent } from './modules/loja/loja/loja.component';
-
+import { CadastrarLojaComponent } from './modules/loja/cadastrar-loja/cadastrar-loja.component';
+import { CadastrarProdutoComponent } from './modules/loja/cadastrar-produto/cadastrar-produto.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,12 +20,15 @@ import { LojaComponent } from './modules/loja/loja/loja.component';
     ListarComponent,
     EspecificacoesComponent,
     ListarLojasComponent,
-    LojaComponent
+    LojaComponent,
+    CadastrarLojaComponent,
+    CadastrarProdutoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
