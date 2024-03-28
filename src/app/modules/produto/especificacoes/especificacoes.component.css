@@ -51,6 +51,7 @@
     width: 100%;
     max-height: 100%;
     height: auto;
+    object-fit: contain;
 }
 .container .infos{
     width: 35%;
@@ -137,7 +138,6 @@
     min-height: 50px;
     height: auto;
     background-color: rgb(200, 199, 199);
-
     border: 1px solid black;
 }
 .especificacoes .descricao{
@@ -155,12 +155,42 @@
 }
 @media (max-width: 900px) {
     .container{
-        width: 95%;
+        width: 100%;
         margin-left: 2.5%;
     }
     .container .principal{
         width: 100%;
+        height: 350px;
+    }
+    .agrupa{
+        display: block;
+    }
+    .container .principal .imagem-grande img{
+        min-width: 60vw;
+        max-width: 70vw;
+        max-height: 100%;
         height: auto;
-        display: flex;
+    }
+    .container .infos{
+        width: 100%;
+    }
+    .detalhes .titulo h2{
+        font-size: 20px;
+    }
+    .especificacoes .nome{
+        width: 50%;
+    }
+    .especificacoes .descricao{
+        width: 50%;
+        font-size: 13px;
+    }
+    .container .principal .imagem-grande{
+        width: 80%;
+    }
+    .container .principal .imagens-pequenas{
+        width: 20%;
+    }
+    .container .infos .titulo{
+        margin-top: 10px;
     }
 }
