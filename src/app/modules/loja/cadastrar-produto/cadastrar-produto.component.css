@@ -1,0 +1,78 @@
+.imagens{
+    width: 255px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.quadrado{
+    width: 40px;
+    height: 40px;
+    background-color: grey;
+}
+.quadrado img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.detalhes-input{
+    height: auto;
+    width: 255px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.detalhes-input input{
+    width: 247px;
+    min-height: 50px;
+    height: auto;
+}
+.detalhes-input button{
+    width: 255px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #5C7FFC;
+    color: white;
+    border: 1px solid white;
+
+}
+.detalhes-input .titulo-detalhes{
+    background-color: rgb(200, 198, 198);
+}
+.especificacoes{
+    min-height: 50px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+}
+.especificacoes .nome{
+    width: 30%;
+    min-height: 50px;
+    height: auto;
+    background-color: rgb(200, 199, 199);
+    border: 1px solid black;
+    text-align: center;
+}
+.especificacoes .descricao{
+    width: 70%;
+    min-height: 50px;
+    height: auto;
+    justify-content: flex-start;
+    border: 1px solid black;
+}
+.especificacoes .nome p{
+    margin:5px
+}
+.especificacoes .descricao p{
+    margin:5px
+}
+@media (max-width: 400px) {
+    .especificacoes .nome{
+            width: 50%;
+        }
+    .especificacoes .descricao{
+        width: 50%;
+        font-size: 13px;
+    }
+}
