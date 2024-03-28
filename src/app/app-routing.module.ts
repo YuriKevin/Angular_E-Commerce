@@ -7,6 +7,8 @@ import { SecaoComponent } from './shared/secao/secao.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ListarComponent } from './modules/produto/listar/listar.component';
 import { EspecificacoesComponent } from './modules/produto/especificacoes/especificacoes.component';
+import { ListarLojasComponent } from './modules/loja/listar-lojas/listar-lojas.component';
+import { LojaComponent } from './modules/loja/loja/loja.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent},
   { path: 'listar', component: ListarComponent},
   { path: 'especificacoes', component: EspecificacoesComponent},
+  { path: 'loja', component: LojaComponent},
+  { path: 'listarLojas', component: ListarLojasComponent},
 ];
 
 @NgModule({
