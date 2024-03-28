@@ -1,0 +1,88 @@
+.loja{
+    width: 400px;
+    height: auto;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.infos{
+    display: block;
+    width: 70%;
+}
+.infos > *{
+    width: 100%;
+}
+.logo{
+    height: 100%;
+    width: 40%;
+}
+.logo img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.nome{
+    min-height: 50px;
+    height: auto;
+}
+.nome h3{
+    margin: 0px;
+    
+}
+.avaliacao{
+    min-height: 30px;
+    height: auto;
+    font-size: 15px;
+}
+.avaliacao p{
+    margin: 0px;
+    margin-left: 10px;
+}
+.avaliacao img{
+    width: 20px;
+    height: auto;
+    margin-left: 5px;
+}
+.verificada{
+    min-height: 40px;
+    height: auto;
+    font-size: 10px;
+}
+.verificada img{
+    width: 20px;
+    margin-right: 10px;
+}
+@media (max-width: 540px) {
+    .loja{
+        display: block;
+        width: 210px;
+    }
+    .loja > *{
+        width: 100%;
+    }
+    .logo img{
+        width: 70px;
+        height: 70px;
+    }
+    .nome{
+        min-height: 40px;
+    }
+    .avaliacao p{
+        margin: 0px;
+        margin-left: 10px;
+        font-size: 10px;
+    }
+    .avaliacao img{
+        width: 15px;
+        margin-left: 2px;
+    }
+    .verificada img{
+        margin-right: 3px;
+    }
+}
