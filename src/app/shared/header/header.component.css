@@ -89,7 +89,7 @@ header .rotas .links{
 }
 @media (max-width: 775px) {
     header{
-        height: 140px;
+        height: auto;
     }
     .principal{
         height: 100%;
@@ -138,5 +138,8 @@ header .rotas .links{
     }
     header .links{
         display: none;
+    }
+    header .rotas{
+        margin-top: 10px;
     }
 }
