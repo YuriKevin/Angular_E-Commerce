@@ -1,0 +1,25 @@
+.infos-loja{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao-produtos{
+    margin-bottom: 50px;
+}
+.botao-produtos button{
+    width: 200px;
+    height: 30px;
+    border: 1px solid white;
+    color: white;
+    background-color: #171592;
+}
+
+.espacamento {
+    margin-bottom: 150px;
+}
