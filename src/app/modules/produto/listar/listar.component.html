@@ -3,7 +3,7 @@
     <div class="produtos">
        <ng-content></ng-content>
     </div>
-    <div class="paginacao center">
+    <div *ngIf="paginacao" class="paginacao center">
         <button>Anterior</button>
         <p>página: 1</p>
         <button>Próximo</button>

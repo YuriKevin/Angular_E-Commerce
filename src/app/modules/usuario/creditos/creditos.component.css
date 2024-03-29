@@ -1,0 +1,27 @@
+h1, h2, input, button{
+    margin-left: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input{
+    width: 230px;
+    height: 30px;
+}
+button{
+    background-color: #2F9C4D;
+    width: 238px;
+    height: 40px;
+    margin-top: 20px;
+    color: white;
+    border: none;
+}
+.recarregar > *{
+    display: block;
+}
+.recarregar{
+    margin-bottom: 500px;
+}
+@media (max-width: 397px) {
+    h1, h2, input, button{
+        margin-left: 0px;
+    }
+}

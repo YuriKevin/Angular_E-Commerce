@@ -81,7 +81,7 @@
     height: 35px;
     background-color: #2F9C4D;
     color: white;
-    border: 1px solid white;
+    border: none;
 }
 @media (max-width: 400px) {
     .geral{

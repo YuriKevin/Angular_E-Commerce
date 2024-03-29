@@ -1,0 +1,43 @@
+.feedback{
+    width: 200px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    border: 1px solid black;
+    overflow: hidden;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}
+.feedback > *{
+    width: 100%;
+}
+.feedback button{
+    background-color: #171592;
+    height: 30px;
+    border: none;
+    color: white;
+}
+.feedback p{
+    color: black;
+}
+.feedback div{
+    height: 10px;
+    background: linear-gradient(270deg, #171592, #6765ff);
+    background-size: 400% 400%;
+    -webkit-animation: animacao 1s ease infinite;
+    animation: animacao 1s ease infinite;
+}
+
+@-webkit-keyframes animacao {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes animacao {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}

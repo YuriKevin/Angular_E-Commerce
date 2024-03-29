@@ -4,17 +4,22 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SecaoComponent } from './secao/secao.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
     declarations: [
         HeaderComponent,
         FooterComponent,
-        SecaoComponent
+        SecaoComponent,
+        FeedbackComponent,
+        NotFoundComponent
     ],
     exports: [
         HeaderComponent,
         FooterComponent,
-        SecaoComponent
+        SecaoComponent,
+        FeedbackComponent
     ],
     imports: [
         CommonModule,

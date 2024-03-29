@@ -15,7 +15,7 @@
 .botao-produtos button{
     width: 200px;
     height: 30px;
-    border: 1px solid white;
+    border: none;
     color: white;
     background-color: #171592;
 }

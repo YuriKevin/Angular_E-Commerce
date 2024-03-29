@@ -7,13 +7,15 @@ import { ListarComponent } from './listar/listar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EspecificacoesComponent } from './especificacoes/especificacoes.component';
 import { FormsModule } from '@angular/forms';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     ProdutoComponent,
     ListarComponent,
-    EspecificacoesComponent
+    EspecificacoesComponent,
+    CarrinhoComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     ProdutoComponent,
     ListarComponent,
     HomeComponent,
-    EspecificacoesComponent
+    EspecificacoesComponent,
+    CarrinhoComponent
   ]
 })
 export class ProdutoModule { }

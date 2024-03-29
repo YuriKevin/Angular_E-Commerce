@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./listar.component.css']
 })
 export class ListarComponent {
-
+  paginacao:boolean = false;
 }

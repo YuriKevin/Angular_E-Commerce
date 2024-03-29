@@ -1,0 +1,41 @@
+.titulo{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+}
+.titulo h1{
+    margin: 0px;
+    font-size: 25px;
+    margin-left: 2.5%;
+}
+.pesquisar{
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pesquisar div{
+    display: block;
+}
+.pesquisar h3{
+    margin: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.pesquisar input{
+    width: 80%;
+    height: 30px;
+    margin-left: 10%;
+}
+.reembolso{
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+.reembolso button{
+    width: 100%;
+    background-color: #c33939;
+    color: white;
+    height: 30px;
+    border: none;
+}
