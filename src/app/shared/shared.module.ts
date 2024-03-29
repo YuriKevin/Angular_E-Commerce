@@ -5,7 +5,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SecaoComponent } from './secao/secao.component';
 
-
 @NgModule({
     declarations: [
         HeaderComponent,
