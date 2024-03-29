@@ -11,6 +11,8 @@ import { ListarLojasComponent } from './modules/loja/listar-lojas/listar-lojas.c
 import { LojaComponent } from './modules/loja/loja/loja.component';
 import { CadastrarLojaComponent } from './modules/loja/cadastrar-loja/cadastrar-loja.component';
 import { CadastrarProdutoComponent } from './modules/loja/cadastrar-produto/cadastrar-produto.component';
+import { PerfilComponent } from './modules/loja/perfil/perfil.component';
+import { ProdutosLojaComponent } from './modules/loja/produtos-loja/produtos-loja.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -24,6 +26,9 @@ const routes: Routes = [
   { path: 'listarLojas', component: ListarLojasComponent},
   { path: 'cadastrarLoja', component: CadastrarLojaComponent},
   { path: 'cadastrarProduto', component: CadastrarProdutoComponent},
+  { path: 'perfilLoja', component: PerfilComponent},
+  { path: 'produtosLoja', component: ProdutosLojaComponent},
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
