@@ -14,6 +14,12 @@ import { CadastrarProdutoComponent } from './modules/loja/cadastrar-produto/cada
 import { PerfilComponent } from './modules/loja/perfil/perfil.component';
 import { ProdutosLojaComponent } from './modules/loja/produtos-loja/produtos-loja.component';
 import { AdicionarCategoriaComponent } from './modules/loja/adicionar-categoria/adicionar-categoria.component';
+import { CarrinhoComponent } from './modules/produto/carrinho/carrinho.component';
+import { CreditosComponent } from './modules/usuario/creditos/creditos.component';
+import { FeedbackComponent } from './shared/feedback/feedback.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { ComprasComponent } from './modules/usuario/compras/compras.component';
+import { VendasComponent } from './modules/loja/vendas/vendas.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -30,7 +36,13 @@ const routes: Routes = [
   { path: 'perfilLoja', component: PerfilComponent},
   { path: 'produtosLoja', component: ProdutosLojaComponent},
   { path: 'adicionarCategoria', component: AdicionarCategoriaComponent},
-  { path: '**', redirectTo: '' },
+  { path: 'carrinho', component: CarrinhoComponent},
+  { path: 'creditos', component: CreditosComponent},
+  { path: 'feedback', component: FeedbackComponent},
+  { path: 'notFound', component: NotFoundComponent},
+  { path: 'compras', component: ComprasComponent},
+  { path: 'vendas', component: VendasComponent},
+  { path: '**', redirectTo: 'notFound' },
 ];
 
 @NgModule({
