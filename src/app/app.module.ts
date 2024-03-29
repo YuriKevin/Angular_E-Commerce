@@ -12,6 +12,9 @@ import { LojaComponent } from './modules/loja/loja/loja.component';
 import { CadastrarLojaComponent } from './modules/loja/cadastrar-loja/cadastrar-loja.component';
 import { CadastrarProdutoComponent } from './modules/loja/cadastrar-produto/cadastrar-produto.component';
 import { FormsModule } from '@angular/forms';
+import { PerfilComponent } from './modules/loja/perfil/perfil.component';
+import { ProdutosLojaComponent } from './modules/loja/produtos-loja/produtos-loja.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +25,15 @@ import { FormsModule } from '@angular/forms';
     ListarLojasComponent,
     LojaComponent,
     CadastrarLojaComponent,
-    CadastrarProdutoComponent
+    CadastrarProdutoComponent,
+    PerfilComponent,
+    ProdutosLojaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
