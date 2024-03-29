@@ -8,7 +8,6 @@ import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto
 import { PerfilComponent } from './perfil/perfil.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { ProdutoModule } from '../produto/produto.module';
 import { ProdutosLojaComponent } from './produtos-loja/produtos-loja.component';
 import { AdicionarCategoriaComponent } from './adicionar-categoria/adicionar-categoria.component';
 
