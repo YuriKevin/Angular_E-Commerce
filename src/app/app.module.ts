@@ -14,6 +14,7 @@ import { CadastrarProdutoComponent } from './modules/loja/cadastrar-produto/cada
 import { FormsModule } from '@angular/forms';
 import { PerfilComponent } from './modules/loja/perfil/perfil.component';
 import { ProdutosLojaComponent } from './modules/loja/produtos-loja/produtos-loja.component';
+import { AdicionarCategoriaComponent } from './modules/loja/adicionar-categoria/adicionar-categoria.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProdutosLojaComponent } from './modules/loja/produtos-loja/produtos-loj
     CadastrarLojaComponent,
     CadastrarProdutoComponent,
     PerfilComponent,
-    ProdutosLojaComponent
+    ProdutosLojaComponent,
+    AdicionarCategoriaComponent
   ],
   imports: [
     BrowserModule,
