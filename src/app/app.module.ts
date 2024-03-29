@@ -15,6 +15,10 @@ import { FormsModule } from '@angular/forms';
 import { PerfilComponent } from './modules/loja/perfil/perfil.component';
 import { ProdutosLojaComponent } from './modules/loja/produtos-loja/produtos-loja.component';
 import { AdicionarCategoriaComponent } from './modules/loja/adicionar-categoria/adicionar-categoria.component';
+import { CarrinhoComponent } from './modules/produto/carrinho/carrinho.component';
+import { CreditosComponent } from './modules/usuario/creditos/creditos.component';
+import { ComprasComponent } from './modules/usuario/compras/compras.component';
+import { VendasComponent } from './modules/loja/vendas/vendas.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { AdicionarCategoriaComponent } from './modules/loja/adicionar-categoria/
     CadastrarProdutoComponent,
     PerfilComponent,
     ProdutosLojaComponent,
-    AdicionarCategoriaComponent
+    AdicionarCategoriaComponent,
+    CarrinhoComponent,
+    CreditosComponent,
+    ComprasComponent,
+    VendasComponent
   ],
   imports: [
     BrowserModule,
