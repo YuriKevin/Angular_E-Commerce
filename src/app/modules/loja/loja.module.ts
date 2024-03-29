@@ -10,6 +10,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { ProdutoModule } from '../produto/produto.module';
 import { ProdutosLojaComponent } from './produtos-loja/produtos-loja.component';
+import { AdicionarCategoriaComponent } from './adicionar-categoria/adicionar-categoria.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProdutosLojaComponent } from './produtos-loja/produtos-loja.component';
     CadastrarLojaComponent,
     CadastrarProdutoComponent,
     PerfilComponent,
-    ProdutosLojaComponent
+    ProdutosLojaComponent,
+    AdicionarCategoriaComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { ProdutosLojaComponent } from './produtos-loja/produtos-loja.component';
     CadastrarLojaComponent,
     CadastrarProdutoComponent,
     PerfilComponent,
-    ProdutosLojaComponent
+    ProdutosLojaComponent,
+    AdicionarCategoriaComponent
   ]
 })
 export class LojaModule { }
