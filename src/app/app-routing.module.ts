@@ -13,6 +13,7 @@ import { CadastrarLojaComponent } from './modules/loja/cadastrar-loja/cadastrar-
 import { CadastrarProdutoComponent } from './modules/loja/cadastrar-produto/cadastrar-produto.component';
 import { PerfilComponent } from './modules/loja/perfil/perfil.component';
 import { ProdutosLojaComponent } from './modules/loja/produtos-loja/produtos-loja.component';
+import { AdicionarCategoriaComponent } from './modules/loja/adicionar-categoria/adicionar-categoria.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'cadastrarProduto', component: CadastrarProdutoComponent},
   { path: 'perfilLoja', component: PerfilComponent},
   { path: 'produtosLoja', component: ProdutosLojaComponent},
+  { path: 'adicionarCategoria', component: AdicionarCategoriaComponent},
   { path: '**', redirectTo: '' },
 ];
 
