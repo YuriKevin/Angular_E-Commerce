@@ -6,6 +6,7 @@ import { ProdutoComponent } from './produto/produto.component';
 import { ListarComponent } from './listar/listar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EspecificacoesComponent } from './especificacoes/especificacoes.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { EspecificacoesComponent } from './especificacoes/especificacoes.compone
   imports: [
     CommonModule,
     ProdutoRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   exports: [
     ProdutoComponent,
