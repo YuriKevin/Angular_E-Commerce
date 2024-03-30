@@ -30,7 +30,6 @@
     -webkit-animation: animacao 1s ease infinite;
     animation: animacao 1s ease infinite;
 }
-
 @-webkit-keyframes animacao {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
