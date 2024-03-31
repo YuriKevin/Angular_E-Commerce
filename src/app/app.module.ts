@@ -19,6 +19,12 @@ import { CarrinhoComponent } from './modules/produto/carrinho/carrinho.component
 import { CreditosComponent } from './modules/usuario/creditos/creditos.component';
 import { ComprasComponent } from './modules/usuario/compras/compras.component';
 import { VendasComponent } from './modules/loja/vendas/vendas.component';
+import { PesquisarComponent } from './modules/produto/pesquisar/pesquisar.component';
+import { LoginLojaComponent } from './modules/loja/login-loja/login-loja.component';
+import { LoginUsuarioComponent } from './modules/usuario/login-usuario/login-usuario.component';
+import { CadastroUsuarioComponent } from './modules/usuario/cadastro-usuario/cadastro-usuario.component';
+import { AtualizarSenhaLojaComponent } from './modules/loja/atualizar-senha-loja/atualizar-senha-loja.component';
+import { AtualizarSenhaUsuarioComponent } from './modules/usuario/atualizar-senha-usuario/atualizar-senha-usuario.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,13 @@ import { VendasComponent } from './modules/loja/vendas/vendas.component';
     CarrinhoComponent,
     CreditosComponent,
     ComprasComponent,
-    VendasComponent
+    VendasComponent,
+    PesquisarComponent,
+    LoginLojaComponent,
+    LoginUsuarioComponent,
+    CadastroUsuarioComponent,
+    AtualizarSenhaLojaComponent,
+    AtualizarSenhaUsuarioComponent
   ],
   imports: [
     BrowserModule,
