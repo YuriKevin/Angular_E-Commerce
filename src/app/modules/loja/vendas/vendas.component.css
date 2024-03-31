@@ -31,6 +31,12 @@
 .reembolso{
     margin-bottom: 20px;
     margin-right: 20px;
+    width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: auto;
 }
 .reembolso button{
     width: 100%;
@@ -39,4 +45,9 @@
     height: 30px;
     border: none;
 }
-
+.reembolso h4{
+    margin: 0px;
+    margin-bottom: 5px;
+    width: 180px;
+    height: auto;
+}
