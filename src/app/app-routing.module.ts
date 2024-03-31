@@ -20,6 +20,12 @@ import { FeedbackComponent } from './shared/feedback/feedback.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { ComprasComponent } from './modules/usuario/compras/compras.component';
 import { VendasComponent } from './modules/loja/vendas/vendas.component';
+import { PesquisarComponent } from './modules/produto/pesquisar/pesquisar.component';
+import { LoginUsuarioComponent } from './modules/usuario/login-usuario/login-usuario.component';
+import { LoginLojaComponent } from './modules/loja/login-loja/login-loja.component';
+import { CadastroUsuarioComponent } from './modules/usuario/cadastro-usuario/cadastro-usuario.component';
+import { AtualizarSenhaLojaComponent } from './modules/loja/atualizar-senha-loja/atualizar-senha-loja.component';
+import { AtualizarSenhaUsuarioComponent } from './modules/usuario/atualizar-senha-usuario/atualizar-senha-usuario.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -42,6 +48,12 @@ const routes: Routes = [
   { path: 'notFound', component: NotFoundComponent},
   { path: 'compras', component: ComprasComponent},
   { path: 'vendas', component: VendasComponent},
+  { path: 'pesquisar', component: PesquisarComponent},
+  { path: 'loginUsuario', component: LoginUsuarioComponent},
+  { path: 'loginLoja', component: LoginLojaComponent},
+  { path: 'cadastroUsuario', component: CadastroUsuarioComponent},
+  { path: 'atualizarSenhaLoja', component: AtualizarSenhaLojaComponent},
+  { path: 'atualizarSenhaUsuario', component: AtualizarSenhaUsuarioComponent},
   { path: '**', redirectTo: 'notFound' },
 ];
 
