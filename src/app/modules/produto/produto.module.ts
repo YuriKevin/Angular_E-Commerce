@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { EspecificacoesComponent } from './especificacoes/especificacoes.component';
 import { FormsModule } from '@angular/forms';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { PesquisarComponent } from './pesquisar/pesquisar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     ProdutoComponent,
     ListarComponent,
     EspecificacoesComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    PesquisarComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     ListarComponent,
     HomeComponent,
     EspecificacoesComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    PesquisarComponent
   ]
 })
 export class ProdutoModule { }

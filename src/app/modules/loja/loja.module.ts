@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { ProdutosLojaComponent } from './produtos-loja/produtos-loja.component';
 import { AdicionarCategoriaComponent } from './adicionar-categoria/adicionar-categoria.component';
 import { VendasComponent } from './vendas/vendas.component';
+import { LoginLojaComponent } from './login-loja/login-loja.component';
+import { AtualizarSenhaLojaComponent } from './atualizar-senha-loja/atualizar-senha-loja.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { VendasComponent } from './vendas/vendas.component';
     PerfilComponent,
     ProdutosLojaComponent,
     AdicionarCategoriaComponent,
-    VendasComponent
+    VendasComponent,
+    LoginLojaComponent,
+    AtualizarSenhaLojaComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +41,9 @@ import { VendasComponent } from './vendas/vendas.component';
     PerfilComponent,
     ProdutosLojaComponent,
     AdicionarCategoriaComponent,
-    VendasComponent
+    VendasComponent,
+    LoginLojaComponent,
+    AtualizarSenhaLojaComponent
   ]
 })
 export class LojaModule { }
