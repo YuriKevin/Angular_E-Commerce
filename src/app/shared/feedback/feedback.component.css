@@ -7,8 +7,8 @@
     border-radius: 10px;
     border: 1px solid black;
     overflow: hidden;
-    position: absolute;
-    top: 10%;
+    position: fixed;
+    top: 30%;
     right: 5%;
 }
 .feedback > *{
