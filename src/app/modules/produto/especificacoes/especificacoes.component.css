@@ -30,12 +30,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-between; 
+    justify-content:flex-start; 
 }
 .container .principal .imagens .quadrado{
     width: 40px;
     height: 40px;
     background-color: grey;
+    margin-top: 10px;
 }
 .container .principal .imagens .quadrado img{
     width: 100%;
@@ -152,6 +153,17 @@
 }
 .especificacoes .descricao p{
     margin:5px
+}
+.adicionar{
+    background-color: #2F9C4D;
+    color: white;
+    border: none;
+    height: 30px;
+}
+.quantidade input{
+    margin-bottom: 20px;
+    width: 50px;
+    height: 30px;
 }
 @media (max-width: 900px) {
     .container{
