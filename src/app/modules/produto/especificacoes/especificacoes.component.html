@@ -1,30 +1,21 @@
 <app-header></app-header>
 <div class="main center">
-    <div class="container">
+    <div class="container" *ngIf="produto">
         <div class="center agrupa">
             <div class="principal">
                 <div class="center imagens-pequenas">
                     <div class="imagens">
-                        <div class="quadrado">
-                        </div>
-                        <div class="quadrado">
-                        </div>
-                        <div class="quadrado">
-                        </div>
-                        <div class="quadrado">
-                        </div>
-                        <div class="quadrado">
-                        </div>
-                        <div class="quadrado">
+                        <div class="quadrado" *ngFor="let imagem of produto.imagens">
+                            <img [src]="imagem" alt="produto" (click)="selecionarImagem(imagem)">
                         </div>
                     </div>
                 </div>
                 <div class="imagem-grande center">
-                    <img src="https://i.zst.com.br/thumbs/12/c/f/-1062741168.jpg" alt="produto">
+                    <img src="{{imagemEscolhida}}" alt="produto">
                 </div>
             </div>
             <div class="infos">
-                <div class="titulo"><h1>Echo Dot 5ª geração | O Echo Dot com o melhor som já lançado | Cor Preta</h1></div>
+                <div class="titulo"><h1>{{produto.titulo}}</h1></div>
                 <div class="entregue center"><p>Vendido e entregue por Amazing</p></div>
                 <div class="avaliacao center">
                     <img src="../../../../assets/estrela_amazing.png" alt="">
@@ -32,10 +23,10 @@
                     <img src="../../../../assets/estrela_amazing.png" alt="">
                     <img src="../../../../assets/estrela_amazing.png" alt="">
                     <img src="../../../../assets/estrela_amazing.png" alt="">
-                    <p>1000 vendidos</p>
+                    <p>{{produto.quantidadeVendida}} vendidos</p>
                 </div>
                 <div class="preco center">
-                    R$ 3.999,99
+                    <p>R$ {{produto.valor}}</p>
                 </div>
                 <div class="icones">
                     <div class="icone-descricao">
@@ -63,21 +54,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="quantidade">
+                    <p>Quantidade:</p>
+                    <input type="number" [(ngModel)]="quantidade">
+                </div>
+                <button class="adicionar" (click)="adicionarAoCarrinho()">Adicionar ao carrinho</button>
             </div>
         </div>
         <div class="detalhes">
             <div class="titulo">
                 <h2>Especificações do produto</h2>
             </div>
-            <div class="especificacoes">
-                <div class="center nome"><p>Processador</p></div>
-                <div class="center descricao"><p>ROCESSADOR AMD RYZEN 7 5700X 3.4GHz (TURBO 4.ROCESSADOR AMD RYZEN 7 5700X 3.4GHz (TURBO 4.ROCESSADOR AMD RYZEN 7 5700X 3.4GHz (TURBO 4.PROCESSADOR AMD RYZEN 7 5700X 3.4GHz (TURBO 4.6GHz) 32MB CACHE AM4 100-100000926WOF, Cerâmica cinza</p></div>
-            </div>
-            <div class="especificacoes center">
-                <div class="center nome"><p>Processador cinza Processador cinza Processador cinza Processador cinza Processador cinza Processador cinza Processador cinza Processador cinza Processador cinza Processador cinza</p></div>
-                <div class="center descricao"><p>PROCESSADOR cinza</p></div>
+            <div class="especificacoes" *ngFor="let detalhe of produto.detalhes">
+                <div class="center nome"><p>{{detalhe.titulo}}</p></div>
+                <div class="center descricao"><p>{{detalhe.descricao}}</p></div>
             </div>
         </div>
     </div>
 </div>
+<app-feedback></app-feedback>
 <app-footer></app-footer>
