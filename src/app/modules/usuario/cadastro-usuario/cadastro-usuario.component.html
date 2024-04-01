@@ -2,18 +2,18 @@
 <div class="container">
     <div class="campo">
         <div class="titulo">
-            <h2>Nome</h2>
+            <h2>Email</h2>
         </div>
         <div class="entrada">
-            <input type="text">
+            <input type="text" [(ngModel)]="email">
         </div>
     </div>
     <div class="campo">
         <div class="titulo">
-            <h2>Email</h2>
+            <h2>Nome</h2>
         </div>
         <div class="entrada">
-            <input type="text">
+            <input type="text" [(ngModel)]="nome">
         </div>
     </div>
     <div class="campo">
@@ -21,7 +21,7 @@
             <h2>Senha</h2>
         </div>
         <div class="entrada">
-            <input type="text">
+            <input type="password" [(ngModel)]="senha">
         </div>
     </div>
     <div class="campo">
@@ -29,13 +29,14 @@
             <h2>Confirmar senha</h2>
         </div>
         <div class="entrada">
-            <input type="text">
+            <input type="password" [(ngModel)]="confirmarSenha" (keyup.enter)="cadastrar()">
         </div>
     </div>
     <div class="campo">
         <div>
-            <button>Cadastrar</button>
+            <button (click)="cadastrar()">Cadastrar</button>
         </div>
     </div>
 </div>
+<app-feedback></app-feedback>
 <app-footer></app-footer>
