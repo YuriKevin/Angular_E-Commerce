@@ -1,5 +1,5 @@
-<div class="feedback">
-    <p>Mensagem</p>
-    <button>ok</button>
+<div class="feedback" *ngIf="show">
+    <p>{{mensagem}}</p>
+    <button *ngIf="aparecerBotaoOk" (click)="close()">ok</button>
     <div></div>
 </div>
