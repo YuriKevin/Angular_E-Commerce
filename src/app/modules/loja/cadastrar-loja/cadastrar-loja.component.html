@@ -7,19 +7,19 @@
         <div class="cadastro">
             <div class="campo">
                 <h2>Código de login</h2>
-                <input type="number">
+                <input type="number" [(ngModel)]="codigoLogin">
             </div>
             <div class="campo">
                 <h2>Nome</h2>
-                <input type="text">
+                <input type="text" [(ngModel)]="nome">
             </div>
             <div class="campo">
                 <h2>Senha</h2>
-                <input type="text">
+                <input type="password" [(ngModel)]="senha">
             </div>
             <div class="campo">
                 <h2>Confirmar senha</h2>
-                <input type="text">
+                <input type="password" [(ngModel)]="confirmarSenha" (keyup.enter)="cadastrar()">
             </div>
             <div class="logo">
                 <div class="input-logo center">
@@ -33,9 +33,10 @@
                 </div>
             </div>
             <div class="confirmar">
-                <button>Confirmar</button>
+                <button (click)="cadastrar()">Confirmar</button>
             </div>
         </div>
     </div>
 </div>
+<app-feedback></app-feedback>
 <app-footer></app-footer>
