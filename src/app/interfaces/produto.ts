@@ -10,4 +10,5 @@ export interface Produto {
     quantidadeVendida:number;
     avaliacao:number;
     disponivel:boolean;
+    lojaId:boolean;
 }
