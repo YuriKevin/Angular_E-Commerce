@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { DetalhesProduto } from 'src/app/interfaces/detalhes-produto';
 import { FormsModule } from '@angular/forms';
+import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
+import { LojaService } from 'src/app/services/loja.service';
+import { Router } from '@angular/router';
+import { Produto } from 'src/app/interfaces/produto';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -8,11 +12,22 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['../cadastrar-loja/cadastrar-loja.component.css','./cadastrar-produto.component.css']
 })
 export class CadastrarProdutoComponent {
+  titulo!:string;
+  valor!:number;
+  quantidade!:number;
+  categoria!:string;
+  disponivel:boolean = true;
   imagem!:string;
   imagens:string[] = [];
   detalhes:DetalhesProduto[] = [];
   detalheTitulo:string = '';
   detalheDescricao:string ='';
+
+  @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
+
+  constructor(private lojaService:LojaService, private router:Router){
+
+  }
 
   adicionarDetalhe(){
     const novoDetalhe: DetalhesProduto = {
@@ -23,6 +38,15 @@ export class CadastrarProdutoComponent {
     this.detalhes.push(novoDetalhe);
     this.detalheTitulo = '';
     this.detalheDescricao = '';
+  }
+
+  marcarDisponibilidade(){
+    if(this.disponivel){
+      this.disponivel = false;
+    }
+    else{
+      this.disponivel = true;
+    }
   }
 
   transformarLogoStringBase64(event: Event): void {
@@ -51,5 +75,25 @@ export class CadastrarProdutoComponent {
       console.log(this.imagem);
     };
     reader.readAsDataURL(file);
+  }
+
+  cadastrar(){
+    if(!this.titulo || !this.valor || !this.quantidade || !this.categoria || !this.imagens || !this.detalhes){
+      this.feedbackComponent.open("Preencha todos os campos", true);
+      return;
+    }
+    else if(this.imagens.length > 6){
+      this.feedbackComponent.open("Máximo de 6 imagens permitidas.", true);
+      return;
+    }
+    this.feedbackComponent.open("Aguarde enquanto validamos seus dados.", false);
+    this.lojaService.cadastrarProduto(this.titulo, this.valor, this.quantidade, this.categoria, this.imagens, this.detalhes, this.disponivel).subscribe({
+      next: (produto:Produto) => {
+        this.router.navigate(['/especificacoes/' + produto.id]);
+      },
+      error: (error) => {
+        this.feedbackComponent.open("Ocorreu um erro cadastrar.", true)
+      }
+    });
   }
 }
