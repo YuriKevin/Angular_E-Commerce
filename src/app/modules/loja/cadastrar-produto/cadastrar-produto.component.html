@@ -7,21 +7,26 @@
         <div class="cadastro">
             <div class="campo">
                 <h2>Título</h2>
-                <input type="text">
+                <input type="text" [(ngModel)]="titulo">
             </div>
             <div class="campo">
                 <h2>Valor</h2>
-                <input type="text">
+                <input type="text" [(ngModel)]="valor">
             </div>
             <div class="campo">
                 <h2>Quantidade</h2>
-                <input type="text">
+                <input type="text" [(ngModel)]="quantidade">
             </div>
             <div class="campo">
                 <h2>Categoria</h2>
-                <input type="text">
+                <input type="text" [(ngModel)]="categoria">
             </div>
-            
+            <div class="campo disponivel">
+                <h2 *ngIf="disponivel">Disponível</h2>
+                <h2 *ngIf="!disponivel">Indisponível</h2>
+                <button class="red" *ngIf="!disponivel" (click)="marcarDisponibilidade()">Alterar</button>
+                <button class="green" *ngIf="disponivel" (click)="marcarDisponibilidade()">Alterar</button>
+            </div>
             <div class="logo">
                 <div class="input-logo center">
                     <label for="fileInput" class="label-customizada">
@@ -48,9 +53,10 @@
                 <button (click)="adicionarDetalhe()">Adicionar</button>
             </div>
             <div class="confirmar">
-                <button>Confirmar</button>
+                <button (click)="cadastrar()">Confirmar</button>
             </div>
         </div>
     </div>
 </div>
+<app-feedback></app-feedback>
 <app-footer></app-footer>
