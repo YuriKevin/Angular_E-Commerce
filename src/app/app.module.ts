@@ -25,6 +25,7 @@ import { LoginUsuarioComponent } from './modules/usuario/login-usuario/login-usu
 import { CadastroUsuarioComponent } from './modules/usuario/cadastro-usuario/cadastro-usuario.component';
 import { AtualizarSenhaLojaComponent } from './modules/loja/atualizar-senha-loja/atualizar-senha-loja.component';
 import { AtualizarSenhaUsuarioComponent } from './modules/usuario/atualizar-senha-usuario/atualizar-senha-usuario.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { AtualizarSenhaUsuarioComponent } from './modules/usuario/atualizar-senh
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
