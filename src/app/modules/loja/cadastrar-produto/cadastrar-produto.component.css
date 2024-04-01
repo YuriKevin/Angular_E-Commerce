@@ -67,6 +67,20 @@
 .especificacoes .descricao p{
     margin:5px
 }
+.disponivel button{
+    width: 255px;
+    height: 30px;
+    margin-top: 10px;
+    color: white;
+    border: none;
+}
+.disponivel .green{
+    background-color: #2F9C4D;
+}
+.disponivel .red{
+    background-color: #c33939;
+}
+
 @media (max-width: 400px) {
     .especificacoes .nome{
             width: 50%;
