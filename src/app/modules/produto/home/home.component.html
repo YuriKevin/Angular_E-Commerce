@@ -5,70 +5,47 @@
             <div class="quadrado">
                 <div class="produto-destaque center">
                     <div class="passar-produto center">
-                        <img class="left" src="../../../../assets/seta_amazing.png" alt="">
+                        <img class="left" src="../../../../assets/seta_amazing.png" alt="" (click)="passarArrayEvidencia(false)">
                     </div>
                     <div class="center produto">
                         <div class="center texto">
                             <div>
-                                <p>"Alexa, timer de 10 minutos para o macarrão."</p>
+                                <p>{{arrayEvidencia[indexArrayEvidencia].texto}}</p>
                             </div>
                         </div>
                         <div class="center imagem">
-                            <img src="https://conteudo.imguol.com.br/c/noticias/5e/2020/09/24/amazon-echo-2020-1600973477197_v2_900x506.png" alt="produto">
+                            <img [src]="arrayEvidencia[indexArrayEvidencia].imagem" alt="produto">
                         </div>
                     </div>
                     <div class="passar-produto center">
-                        <img src="../../../../assets/seta_amazing.png" alt="">
+                        <img src="../../../../assets/seta_amazing.png" alt="" (click)="passarArrayEvidencia(true)">
                     </div>
                 </div> 
                 <div class="produtos-evidencia center">
-                    <app-produto></app-produto>
-                    <app-produto></app-produto>
-                    <app-produto></app-produto>
+                    <ng-container *ngFor="let produto of produtosEvidencia">
+                        <app-produto  [produto]="produto"></app-produto>
+                    </ng-container>
                 </div>
             </div>
         </div>
-        <app-secao class="secao"></app-secao>
+        <app-secao class="secao" [titulo]="'Mais vendidos'" [produtos]="maisVendidos">
+        </app-secao>
         <div class="categorias">
             <div class="navegar center">
                 <div class="center">
-                    <button>Anterior</button>
+                    <button (click)="passarArrayCategorias(false)">Anterior</button>
                     <div class="center">
                         <img src="../../../../assets/logo_amazing_a.png" alt="logo amazing">
                     </div>
-                    <button>Próximo</button>
+                    <button (click)="passarArrayCategorias(true)">Próximo</button>
                 </div>
             </div>
-            <div class="categoria">
+            <div class="categoria" *ngFor="let categoria of arrayCategorias.slice(categoriasInicialSlice, categoriasFinalSlice)">
                 <div class="center titulo">
-                    <h2>Computadores</h2>
+                    <h2>{{categoria.texto}}</h2>
                 </div>
                 <div class="center conteudo">
-                    <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK0U3?wid=940&hei=1112&fmt=png-alpha&.v=1646446502337" alt="">
-                </div>
-            </div>
-            <div class="categoria">
-                <div class="center titulo">
-                    <h2>Celulares</h2>
-                </div>
-                <div class="center conteudo">
-                    <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK0U3?wid=940&hei=1112&fmt=png-alpha&.v=1646446502337" alt="">
-                </div>
-            </div>
-            <div class="categoria">
-                <div class="center titulo">
-                    <h2>Livros</h2>
-                </div>
-                <div class="center conteudo">
-                    <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK0U3?wid=940&hei=1112&fmt=png-alpha&.v=1646446502337" alt="">
-                </div>
-            </div>
-            <div class="categoria">
-                <div class="center titulo">
-                    <h2>Eletrodomésticos</h2>
-                </div>
-                <div class="center conteudo">
-                    <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MK0U3?wid=940&hei=1112&fmt=png-alpha&.v=1646446502337" alt="">
+                    <img [src]="categoria.imagem" alt="">
                 </div>
             </div>
         </div>
