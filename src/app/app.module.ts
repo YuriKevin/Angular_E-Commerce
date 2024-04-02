@@ -26,14 +26,11 @@ import { CadastroUsuarioComponent } from './modules/usuario/cadastro-usuario/cad
 import { AtualizarSenhaLojaComponent } from './modules/loja/atualizar-senha-loja/atualizar-senha-loja.component';
 import { AtualizarSenhaUsuarioComponent } from './modules/usuario/atualizar-senha-usuario/atualizar-senha-usuario.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProdutoModule } from './modules/produto/produto.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ProdutoComponent,
-    ListarComponent,
-    EspecificacoesComponent,
     ListarLojasComponent,
     LojaComponent,
     CadastrarLojaComponent,
@@ -41,11 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
     PerfilComponent,
     ProdutosLojaComponent,
     AdicionarCategoriaComponent,
-    CarrinhoComponent,
     CreditosComponent,
     ComprasComponent,
     VendasComponent,
-    PesquisarComponent,
     LoginLojaComponent,
     LoginUsuarioComponent,
     CadastroUsuarioComponent,
@@ -57,7 +52,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    ProdutoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
