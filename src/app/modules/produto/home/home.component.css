@@ -79,6 +79,9 @@
 .categorias .navegar div{
     border-radius: 50px;
 }
+.categorias .categoria{
+    min-height: 150px;
+}
 .categorias .navegar button{
     width: 100px;
     height: 40px;
@@ -100,12 +103,13 @@
 }
 .categoria{
     margin-top: 20px;
-    height: 90%;
+    height: 250px;
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Exemplo de sombra */
     width: 200px;
     font-size: 10px;
+    
 }
 .categoria .titulo{
     height: 10%;
@@ -116,7 +120,6 @@
     width: 200px;
 }
 .categoria .conteudo img{
-    height: 90%;
     max-width: 190px;
     width: auto;
 }
