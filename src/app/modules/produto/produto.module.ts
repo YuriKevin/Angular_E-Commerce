@@ -9,6 +9,7 @@ import { EspecificacoesComponent } from './especificacoes/especificacoes.compone
 import { FormsModule } from '@angular/forms';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { PesquisarComponent } from './pesquisar/pesquisar.component';
+import { SecaoComponent } from './secao/secao.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PesquisarComponent } from './pesquisar/pesquisar.component';
     ListarComponent,
     EspecificacoesComponent,
     CarrinhoComponent,
-    PesquisarComponent
+    PesquisarComponent,
+    SecaoComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { PesquisarComponent } from './pesquisar/pesquisar.component';
     HomeComponent,
     EspecificacoesComponent,
     CarrinhoComponent,
-    PesquisarComponent
+    PesquisarComponent,
+    SecaoComponent
   ]
 })
 export class ProdutoModule { }
