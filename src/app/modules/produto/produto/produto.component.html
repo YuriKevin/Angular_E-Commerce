@@ -1,13 +1,13 @@
-<div class="card">
+<div class="card" *ngIf="produto">
         <div class="image center">
-            <img src="https://conteudo.imguol.com.br/c/noticias/5e/2020/09/24/amazon-echo-2020-1600973477197_v2_900x506.png" alt="produto">
+            <img [src]="produto.imagens[0]" alt="produto">
         </div>
         <div class="infos">
             <div class="titulo">
-                <p>Echo Dot 5ª geração | O Echo Dot com o melhor som já lançado | Cor Preta</p>
+                <p>{{produto.titulo.length > 20 ? produto.titulo.slice(0, 20) + '...' : produto.titulo}}</p>
             </div>
             <div class="preco center">
-                <h4>R$ 399,99</h4>
+                <h4>R$ {{produto.valor}}</h4>
             </div>
         </div>
 </div>
