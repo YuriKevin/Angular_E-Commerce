@@ -14,6 +14,9 @@ export class UsuarioService {
 
   usuario!:Usuario;
   carrinho: Produto[] = [];
+  historicoNavegacao:string[] = [];
+  produtosHistorico:Produto[] = [];
+
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -40,6 +43,21 @@ export class UsuarioService {
   }
   removerProdutoCarrinho(produto:Produto){
     this.carrinho.push(produto);
+  }
+
+  adicionarHistoricoNavegacao(palavraPesquisada:string){
+    
+  }
+
+  getProdutosHistorico():Produto[]{
+    return this.produtosHistorico;
+  }
+
+  temHistorico():boolean{
+    if(this.historicoNavegacao.length==0){
+      return false
+    }
+    return true;
   }
 
   
@@ -86,5 +104,7 @@ export class UsuarioService {
             })
           );
       }
+
+
 
 }
