@@ -35,4 +35,39 @@ export class ProdutoService {
       })
     );
   }
+
+  maisVendidos(): Observable<any> {
+    return this.httpClient.get<Produto>(this.apiURL + 'produto/top')
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Erro desconhecido';
+        if (error.error instanceof ErrorEvent) {
+          // Erro do cliente
+          errorMessage = `Erro: ${error.error.message}`;
+        } else {
+          // Erro do servidor
+          errorMessage = error.error.message;
+        }
+        return throwError(errorMessage);
+      })
+    );
+  }
+
+  produtosDestaque(): Observable<any> {
+    return this.httpClient.get<Produto>(this.apiURL + 'produto/destaques')
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Erro desconhecido';
+        if (error.error instanceof ErrorEvent) {
+          // Erro do cliente
+          errorMessage = `Erro: ${error.error.message}`;
+        } else {
+          // Erro do servidor
+          errorMessage = error.error.message;
+        }
+        return throwError(errorMessage);
+      })
+    );
+  }
+
 }
