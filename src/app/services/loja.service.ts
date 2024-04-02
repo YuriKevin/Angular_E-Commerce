@@ -21,7 +21,7 @@ export class LojaService {
   }
 
   constructor(private httpClient: HttpClient, private router:Router) {
-    this.login(23232323, "12345678").subscribe({
+    this.login(1111, "1234").subscribe({
       next: (loja:Loja) => {
         this.setLoja(loja);
       },
