@@ -1,0 +1,50 @@
+.secao{
+    width: 100%;
+    min-height: 300px;
+    height: auto;
+    /*background-image: linear-gradient(to bottom, #1a18a7 1%, white);*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+.secao .center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.secao .titulo{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.secao .titulo h2{
+    margin-left: 5%;
+    color: black;
+}
+.secao .conteudo{
+    width: 100%;
+    min-height: 240px;
+    height: auto;
+}
+.secao .produtos{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: auto;
+}
+.secao .passar-produto{
+    height: 100%;
+    width: 20%;
+}
+.secao .passar-produto img{
+    height: 50px;
+}
+.secao .left{
+    rotate: 180deg;
+}
+@media (max-width: 775px) {
+    .secao .produtos{
+        justify-content: space-around;
+    }
+}

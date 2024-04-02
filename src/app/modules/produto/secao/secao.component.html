@@ -1,0 +1,18 @@
+<div class="secao">
+        <div class="titulo">
+            <h2>{{titulo}}</h2>
+        </div>
+        <div class="conteudo center">
+            <div class="passar-produto center left">
+                <img src="../../../assets/seta_amazing.png" alt="passar produto" (click)="passarProdutos(false)">
+            </div>
+            <div class="produtos" *ngIf="produtos">
+                <ng-container *ngFor="let produto of produtos.slice(controleInicioIndices, indiceFinalSlice)">
+                    <app-produto [produto]="produto"></app-produto>
+                </ng-container>
+            </div>
+            <div class="passar-produto center">
+                <img src="../../../assets/seta_amazing.png" alt="passar produto" (click)="passarProdutos(true)">
+            </div>
+        </div>
+</div>
