@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
@@ -9,13 +9,23 @@ import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
   templateUrl: './login-usuario.component.html',
   styleUrls: ['./login-usuario.component.css']
 })
-export class LoginUsuarioComponent {
+export class LoginUsuarioComponent implements OnInit{
   email!:string;
   senha!:string;
+  retornarAoCarrinho!:boolean;
   @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
-  constructor(private usuarioService:UsuarioService, private router:Router){
+  constructor(private usuarioService:UsuarioService, private router:Router, private route:ActivatedRoute){
 
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const verificacao = params['retornarAoCarrinho'];
+      if (verificacao === 'true') {
+        this.retornarAoCarrinho = true;
+      } 
+    })
   }
   
   login() {
@@ -27,7 +37,12 @@ export class LoginUsuarioComponent {
     this.usuarioService.login(this.email, this.senha).subscribe({
       next: (usuario:Usuario) => {
         this.usuarioService.setUsuario(usuario);
-        this.router.navigate(['']);
+        if(this.retornarAoCarrinho){
+          this.router.navigate(['carrinho']);
+        }
+        else{
+          this.router.navigate(['']);
+        }
       },
       error: (error) => {
         this.feedbackComponent.open("Ocorreu um erro ao se conectar.", true)
