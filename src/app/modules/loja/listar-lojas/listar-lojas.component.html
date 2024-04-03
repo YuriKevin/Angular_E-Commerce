@@ -3,23 +3,17 @@
     <div class="flex pesquisar">
         <h1>Pesquisar lojas:</h1>
         <div>
-            <input type="text">
-            <button>Buscar</button>
+            <input type="text" [(ngModel)]="nomeLoja" (keyup.enter)="pesquisarLojas()">
+            <button (click)="pesquisarLojas()">Buscar</button>
         </div>
     </div>
-    <div class="flex">
-        <app-loja></app-loja>
-    </div>
-    <div class="flex">
-        <app-loja></app-loja>
-    </div>
-    <div class="flex">
-        <app-loja></app-loja>
+    <div class="flex" *ngFor="let loja of lojas">
+        <app-loja [loja]="loja"></app-loja>
     </div>
     <div class="paginacao">
-        <button>Anterior</button>
-        <p>página: 1</p>
-        <button>Próximo</button>
+        <button (click)="retrocederPagina()">Anterior</button>
+        <p>página: {{this.paginacao+1}}</p>
+        <button (click)="passarPagina()">Próximo</button>
     </div>
 </div>
 <app-footer></app-footer>
