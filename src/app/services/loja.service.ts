@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Loja } from '../interfaces/loja';
 import { DetalhesProduto } from '../interfaces/detalhes-produto';
+import { LojaDTO } from '../interfaces/loja-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -100,5 +101,40 @@ export class LojaService {
           })
         );
     }
-      
+
+    listarLojas(pagina:number): Observable<any> {
+      return this.httpClient.get<LojaDTO>(`${this.apiURL}loja/listar/${pagina}`)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          let errorMessage = 'Erro desconhecido';
+          if (error.error instanceof ErrorEvent) {
+            // Erro do cliente
+            errorMessage = `Erro: ${error.error.message}`;
+          } else {
+            // Erro do servidor
+            errorMessage = error.error.message;
+          }
+          return throwError(errorMessage);
+        })
+      );
+    }
+
+    pesquisarLojas(nome:string, pagina:number): Observable<any> {
+      const params = new HttpParams().set('pagina', pagina.toString());
+      return this.httpClient.get<LojaDTO>(`${this.apiURL}loja/nome/${nome}`, { params })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          let errorMessage = 'Erro desconhecido';
+          if (error.error instanceof ErrorEvent) {
+            // Erro do cliente
+            errorMessage = `Erro: ${error.error.message}`;
+          } else {
+            // Erro do servidor
+            errorMessage = error.error.message;
+          }
+          return throwError(errorMessage);
+        })
+      );
+    }
+    
 }
