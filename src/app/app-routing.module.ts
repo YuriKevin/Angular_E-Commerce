@@ -26,6 +26,10 @@ import { LoginLojaComponent } from './modules/loja/login-loja/login-loja.compone
 import { CadastroUsuarioComponent } from './modules/usuario/cadastro-usuario/cadastro-usuario.component';
 import { AtualizarSenhaLojaComponent } from './modules/loja/atualizar-senha-loja/atualizar-senha-loja.component';
 import { AtualizarSenhaUsuarioComponent } from './modules/usuario/atualizar-senha-usuario/atualizar-senha-usuario.component';
+import { HistoricoComponent } from './modules/produto/historico/historico.component';
+import { MaisVendidosComponent } from './modules/produto/mais-vendidos/mais-vendidos.component';
+import { RecentesComponent } from './modules/produto/recentes/recentes.component';
+import { ProdutosAmazingComponent } from './modules/produto/produtos-amazing/produtos-amazing.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -36,7 +40,7 @@ const routes: Routes = [
   { path: 'listar', component: ListarComponent},
   { path: 'especificacoes/:id', component: EspecificacoesComponent},
   { path: 'loja', component: LojaComponent},
-  { path: 'listarLojas', component: ListarLojasComponent},
+  { path: 'lojas', component: ListarLojasComponent},
   { path: 'cadastrarLoja', component: CadastrarLojaComponent},
   { path: 'cadastrarProduto', component: CadastrarProdutoComponent},
   { path: 'perfilLoja/:id', component: PerfilComponent},
@@ -48,12 +52,16 @@ const routes: Routes = [
   { path: 'notFound', component: NotFoundComponent},
   { path: 'compras', component: ComprasComponent},
   { path: 'vendas', component: VendasComponent},
-  { path: 'pesquisar', component: PesquisarComponent},
-  { path: 'loginUsuario', component: LoginUsuarioComponent},
+  { path: 'pesquisar/:palavra/:pagina', component: PesquisarComponent},
+  { path: 'loginUsuario/:retornarAoCarrinho', component: LoginUsuarioComponent},
   { path: 'loginLoja', component: LoginLojaComponent},
   { path: 'cadastroUsuario', component: CadastroUsuarioComponent},
   { path: 'atualizarSenhaLoja', component: AtualizarSenhaLojaComponent},
   { path: 'atualizarSenhaUsuario', component: AtualizarSenhaUsuarioComponent},
+  { path: 'historico', component: HistoricoComponent},
+  { path: 'maisVendidos', component: MaisVendidosComponent},
+  { path: 'recentes', component: RecentesComponent},
+  { path: 'amazing', component: ProdutosAmazingComponent},
   { path: '**', redirectTo: 'notFound' },
 ];
 
