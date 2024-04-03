@@ -4,17 +4,10 @@
 </div>
 <div class="margem">
     <app-listar>
-        <div class="produto">
-            <app-produto></app-produto>
-            <button>Remover</button>
-        </div>
-        <div class="produto">
-            <app-produto></app-produto>
-            <button>Remover</button>
-        </div>
-        <div class="produto">
-            <app-produto></app-produto>
-            <button>Remover</button>
+        <div class="produto" *ngFor="let produto of produtos">
+            <app-produto [produto]="produto"></app-produto>
+            <p>Quantidade: {{produto.quantidade}}</p>
+            <button (click)="removerProdutoCarrinho(produto)">Remover</button>
         </div>
     </app-listar>
     <div class="pagamento">
@@ -22,11 +15,11 @@
             <button class="green">Pagar com créditos amazing</button>
         </div>
         <div>
-            <button class="purple">Recarregar créditos amazing</button>
+            <button class="purple" [routerLink]="['/creditos']">Recarregar créditos amazing</button>
         </div>
     </div>
 </div>
-<div class="compra">
+<div class="compra" *ngIf="compraRealizada">
     <div class="quadrado">
         <h1>Obrigado por comprar com a Amazing!</h1>
         <div >
