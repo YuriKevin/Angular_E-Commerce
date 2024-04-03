@@ -4,7 +4,7 @@
 </div>
 <div class="recarregar">
     <h2>valor da recarga:</h2>
-    <input type="number">
-    <button>Confirmar</button>
+    <input type="number" [(ngModel)]="creditosAdicionados">
+    <button (click)="adicionarCreditos()">Confirmar</button>
 </div>
 <app-footer></app-footer>
