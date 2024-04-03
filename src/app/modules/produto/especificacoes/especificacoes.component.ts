@@ -45,7 +45,7 @@ export class EspecificacoesComponent implements OnInit{
 
   adicionarAoCarrinho(){
     this.produto.quantidade = this.quantidade;
-    this.usuarioService.adicionarProdutoCarrinho(this.produto);
+    this.produtoService.adicionarProdutoCarrinho(this.produto);
     this.feedbackComponent.open("Produto adicionado ao carrinho.", true)
   }
 }
