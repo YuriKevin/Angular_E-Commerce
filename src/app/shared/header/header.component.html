@@ -2,18 +2,18 @@
     <div class="principal">
         <div class="block">
             <div class="logo">
-                <img src="../../../assets/logo_amazing.png" alt="logo">
+                <img src="../../../assets/logo_amazing.png" alt="logo" [routerLink]="['']">
             </div>
         </div>
         <div>
             <div class="center">
                 <div class="center pesquisa">
-                    <input type="text">
+                    <input type="text" [(ngModel)]="palavraPesquisada" (keyup.enter)="pesquisar()">
                     <img src="../../../assets/logo_amazing_a.png" alt="logo">
                 </div>
                 <div class="center carrinho">
-                    <p>Olá, faça seu login</p>
-                    <img src="../../../assets/carrinho-amazing.png" alt="carrinho">
+                    <p [routerLink]="['loginUsuario', false]">Olá, faça seu login</p>
+                    <img src="../../../assets/carrinho-amazing.png" alt="carrinho" [routerLink]="['/carrinho']">
                 </div>
             </div>
         </div>
@@ -24,10 +24,10 @@
             <p>Categorias</p>
         </div>
         <div class="center links">
-            <p>Mais vendidos</p>
-            <p>Últimos adicionados</p>
-            <p>Produtos Amazing</p>
-            <p>Lojas</p>
+            <p [routerLink]="['/maisVendidos']">Mais vendidos</p>
+            <p [routerLink]="['/recentes']">Últimos adicionados</p>
+            <p [routerLink]="['/amazing']">Produtos Amazing</p>
+            <p [routerLink]="['/lojas']">Lojas</p>
         </div>
     </div>
 </header>
