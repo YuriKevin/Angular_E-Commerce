@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { LojaDTO } from 'src/app/interfaces/loja-dto';
 
 @Component({
   selector: 'app-loja',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./loja.component.css']
 })
 export class LojaComponent {
-
+  @Input() loja!: LojaDTO;
 }
