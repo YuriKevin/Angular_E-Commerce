@@ -73,6 +73,31 @@ export class UsuarioService {
           );
       }
 
+      atualizarCredito(credito:number){
+        this.usuario.credito += credito;
+      }
 
+      adicionarCreditos(usuarioId:number, creditos:number): Observable<any>{
+              return this.httpClient.put(`${this.apiURL}usuario/adicionarCredito/${usuarioId}/${creditos}`, {})
+              .pipe(
+              catchError((error: HttpErrorResponse) => {
+                if (error.status === 404) {
+                  return throwError('Nenhum usuário encontrado');
+                } else if(error.status === 400) {
+                  return throwError('Usuário ou senha incorretos');
+                }
+                else {
+                  let errorMessage = 'Erro ao carregar usuário';
+                  if (error.error instanceof ErrorEvent) {
+                    errorMessage = `Erro no cliente: ${error.error.message}`;
+                  } else {
+                    errorMessage = `Erro no servidor, tente novamente mais tade.`;
+                    errorMessage = `Erro no servidor, tente novamente mais tade: ${error.status}, `;
+                  }
+                  return throwError(errorMessage);
+                }
+              })
+            );
+        }
 
 }
