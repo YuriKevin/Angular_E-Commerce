@@ -1,10 +1,10 @@
-<div class="card" *ngIf="produto">
+<div class="card" *ngIf="produto" [routerLink]="['/especificacoes', produto.id]">
         <div class="image center">
             <img [src]="produto.imagens[0]" alt="produto">
         </div>
         <div class="infos">
             <div class="titulo">
-                <p>{{produto.titulo.length > 20 ? produto.titulo.slice(0, 20) + '...' : produto.titulo}}</p>
+                <p>{{produto.titulo.length > 50 ? produto.titulo.slice(0, 50) + '...' : produto.titulo}}</p>
             </div>
             <div class="preco center">
                 <h4>R$ {{produto.valor}}</h4>
