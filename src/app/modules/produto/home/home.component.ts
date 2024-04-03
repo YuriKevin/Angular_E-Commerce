@@ -12,8 +12,8 @@ import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 })
 export class HomeComponent implements OnInit{
   maisVendidos:Produto[] = [];
-  produtosHistorico!: Produto[];
   produtosEvidencia!:Produto[];
+  
 
   controleInicioIndices:number = 0;
   controleFinalIndices:number = 4;
@@ -114,10 +114,6 @@ export class HomeComponent implements OnInit{
         console.log(error);
       }
     });
-
-    if(this.usuarioService.temHistorico()){
-      this.produtosHistorico = this.usuarioService.getProdutosHistorico();
-    }
     if (window.innerWidth < 650) {
       this.controleFinalIndices = 1;
     }
