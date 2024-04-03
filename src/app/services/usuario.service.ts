@@ -4,18 +4,13 @@ import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Usuario } from '../interfaces/usuario';
-import { Produto } from '../interfaces/produto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
   private apiURL = "http://localhost:8080/";
-
   usuario!:Usuario;
-  carrinho: Produto[] = [];
-  historicoNavegacao:string[] = [];
-  produtosHistorico:Produto[] = [];
 
 
   httpOptions = {
@@ -34,33 +29,6 @@ export class UsuarioService {
   setUsuario(usuario:Usuario){
     this.usuario = usuario;
   }
-
-  getCarrinho(){
-    return this.carrinho;
-  }
-  adicionarProdutoCarrinho(produto:Produto){
-    this.carrinho.push(produto);
-  }
-  removerProdutoCarrinho(produto:Produto){
-    this.carrinho.push(produto);
-  }
-
-  adicionarHistoricoNavegacao(palavraPesquisada:string){
-    
-  }
-
-  getProdutosHistorico():Produto[]{
-    return this.produtosHistorico;
-  }
-
-  temHistorico():boolean{
-    if(this.historicoNavegacao.length==0){
-      return false
-    }
-    return true;
-  }
-
-  
   
   cadastrar(email:string, nome:string, senha:string): Observable<any> {
         return this.httpClient.post<any>(this.apiURL + 'usuario', { email, nome, senha})
