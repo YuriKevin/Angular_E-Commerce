@@ -1,10 +1,10 @@
 <div class="loja">
     <div class="logo center">
-        <img src="https://images.samsung.com/is/image/samsung/assets/global/about-us/brand/logo/256_144_4.png?$512_N_PNG$" alt="logo">
+        <img [src]="loja.logo" alt="logo">
     </div>
     <div class="infos">
         <div class="nome center">
-            <h3>Samsung</h3>
+            <h3>{{loja.nome}}</h3>
         </div>
         <div class="avaliacao center">
             <img src="../../../../assets/estrela_amazing.png" alt="">
@@ -12,7 +12,7 @@
             <img src="../../../../assets/estrela_amazing.png" alt="">
             <img src="../../../../assets/estrela_amazing.png" alt="">
             <img src="../../../../assets/estrela_amazing.png" alt="">
-            <p>+ 1000 vendidos</p>
+            <p>{{loja.quantidadeVendida}} vendidos</p>
         </div>
         <div class="verificada center">
             <img src="../../../../assets/amazing_security_icon.png" alt="">
