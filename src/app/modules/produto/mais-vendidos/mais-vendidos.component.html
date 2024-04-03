@@ -1,0 +1,7 @@
+<app-header></app-header>
+<app-listar [titulo]="'Mais vendidos'">
+    <ng-container *ngFor="let produto of produtos">
+        <app-produto [produto]="produto"></app-produto>
+    </ng-container>
+</app-listar>
+<app-footer></app-footer>
