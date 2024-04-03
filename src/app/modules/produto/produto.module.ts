@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { PesquisarComponent } from './pesquisar/pesquisar.component';
 import { SecaoComponent } from './secao/secao.component';
+import { HistoricoComponent } from './historico/historico.component';
+import { MaisVendidosComponent } from './mais-vendidos/mais-vendidos.component';
+import { RecentesComponent } from './recentes/recentes.component';
+import { ProdutosAmazingComponent } from './produtos-amazing/produtos-amazing.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { SecaoComponent } from './secao/secao.component';
     EspecificacoesComponent,
     CarrinhoComponent,
     PesquisarComponent,
-    SecaoComponent
+    SecaoComponent,
+    HistoricoComponent,
+    MaisVendidosComponent,
+    RecentesComponent,
+    ProdutosAmazingComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +42,11 @@ import { SecaoComponent } from './secao/secao.component';
     EspecificacoesComponent,
     CarrinhoComponent,
     PesquisarComponent,
-    SecaoComponent
+    SecaoComponent,
+    HistoricoComponent,
+    RecentesComponent,
+    MaisVendidosComponent,
+    ProdutosAmazingComponent
   ]
 })
 export class ProdutoModule { }
