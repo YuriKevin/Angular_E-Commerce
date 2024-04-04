@@ -30,6 +30,8 @@ import { HistoricoComponent } from './modules/produto/historico/historico.compon
 import { MaisVendidosComponent } from './modules/produto/mais-vendidos/mais-vendidos.component';
 import { RecentesComponent } from './modules/produto/recentes/recentes.component';
 import { ProdutosAmazingComponent } from './modules/produto/produtos-amazing/produtos-amazing.component';
+import { PerfilUsuarioComponent } from './modules/usuario/perfil-usuario/perfil-usuario.component';
+import { AtualizarDadosComponent } from './modules/usuario/atualizar-dados/atualizar-dados.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -62,6 +64,8 @@ const routes: Routes = [
   { path: 'maisVendidos', component: MaisVendidosComponent},
   { path: 'recentes', component: RecentesComponent},
   { path: 'amazing', component: ProdutosAmazingComponent},
+  { path: 'perfilUsuario', component: PerfilUsuarioComponent},
+  { path: 'atualizarDados', component: AtualizarDadosComponent},
   { path: '**', redirectTo: 'notFound' },
 ];
 
