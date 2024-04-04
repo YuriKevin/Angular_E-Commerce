@@ -13,6 +13,7 @@ export class UsuarioService {
   usuario!:Usuario;
 
 
+
   httpOptions = {
     headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -99,5 +100,28 @@ export class UsuarioService {
               })
             );
         }
+
+        atualizarDados(id:number, nome:string, email:string): Observable<any>{
+          return this.httpClient.put(this.apiURL+'usuario', {id, nome, email})
+          .pipe(
+          catchError((error: HttpErrorResponse) => {
+            if (error.status === 404) {
+              return throwError('Nenhum usuário encontrado');
+            } else if(error.status === 400) {
+              return throwError('Usuário ou senha incorretos');
+            }
+            else {
+              let errorMessage = 'Erro ao carregar usuário';
+              if (error.error instanceof ErrorEvent) {
+                errorMessage = `Erro no cliente: ${error.error.message}`;
+              } else {
+                errorMessage = `Erro no servidor, tente novamente mais tade.`;
+                errorMessage = `Erro no servidor, tente novamente mais tade: ${error.status}, `;
+              }
+              return throwError(errorMessage);
+            }
+          })
+        );
+    }
 
 }
