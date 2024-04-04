@@ -12,7 +12,7 @@
     </app-listar>
     <div class="pagamento">
         <div>
-            <button class="green">Pagar com créditos amazing</button>
+            <button class="green" (click)="realizarCompra()">Pagar com créditos amazing</button>
         </div>
         <div>
             <button class="purple" [routerLink]="['/creditos']">Recarregar créditos amazing</button>
@@ -25,7 +25,7 @@
         <div >
             <img src="../../../../assets/logo_amazing_a.png" alt="">
         </div>
-        <button>Ir para compras</button>
+        <button [routerLink]="['/perfilUsuario']">Ir para compras</button>
     </div>
 </div>
 <app-footer></app-footer>
