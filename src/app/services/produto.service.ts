@@ -78,7 +78,7 @@ export class ProdutoService {
     return this.carrinho;
   }
   adicionarProdutoCarrinho(produto:Produto){
-    const index = this.carrinho.findIndex(produto => produto.id === produto.id);
+    const index = this.carrinho.findIndex(item => item.id === produto.id);
     if (index !== -1) {
       this.carrinho[index].quantidade += produto.quantidade;
     }
