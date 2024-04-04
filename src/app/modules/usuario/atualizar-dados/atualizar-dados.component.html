@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="container">
+    <div class="campo">
+        <div class="titulo">
+            <h2>Nome</h2>
+        </div>
+        <div class="entrada">
+            <input type="text" [(ngModel)]="nome">
+        </div>
+    </div>
+    <div class="campo">
+        <div class="titulo">
+            <h2>Email</h2>
+        </div>
+        <div class="entrada">
+            <input type="text" [(ngModel)]="email" (keyup.enter)="atualizarDados()">
+        </div>
+    </div>
+    <div class="campo">
+        <div>
+            <button (click)="atualizarDados()">Confirmar</button>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
