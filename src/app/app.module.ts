@@ -27,6 +27,8 @@ import { AtualizarSenhaLojaComponent } from './modules/loja/atualizar-senha-loja
 import { AtualizarSenhaUsuarioComponent } from './modules/usuario/atualizar-senha-usuario/atualizar-senha-usuario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProdutoModule } from './modules/produto/produto.module';
+import { PerfilUsuarioComponent } from './modules/usuario/perfil-usuario/perfil-usuario.component';
+import { AtualizarDadosComponent } from './modules/usuario/atualizar-dados/atualizar-dados.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ProdutoModule } from './modules/produto/produto.module';
     LoginUsuarioComponent,
     CadastroUsuarioComponent,
     AtualizarSenhaLojaComponent,
-    AtualizarSenhaUsuarioComponent
+    AtualizarSenhaUsuarioComponent,
+    PerfilUsuarioComponent,
+    AtualizarDadosComponent
   ],
   imports: [
     BrowserModule,
