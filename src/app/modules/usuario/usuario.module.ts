@@ -9,6 +9,8 @@ import { ComprasComponent } from './compras/compras.component';
 import { LoginUsuarioComponent } from './login-usuario/login-usuario.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { AtualizarSenhaUsuarioComponent } from './atualizar-senha-usuario/atualizar-senha-usuario.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { AtualizarDadosComponent } from './atualizar-dados/atualizar-dados.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { AtualizarSenhaUsuarioComponent } from './atualizar-senha-usuario/atuali
     ComprasComponent,
     LoginUsuarioComponent,
     CadastroUsuarioComponent,
-    AtualizarSenhaUsuarioComponent
+    AtualizarSenhaUsuarioComponent,
+    PerfilUsuarioComponent,
+    AtualizarDadosComponent
   ],
   imports: [
     CommonModule,
