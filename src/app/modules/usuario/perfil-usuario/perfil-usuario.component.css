@@ -1,0 +1,164 @@
+.container{
+    width: 100%;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.infos{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+.infos > *{
+    width: 100%;
+}
+.infos div > *{
+    width: 250px;
+}
+.nome{
+    font-size: 10px;
+    text-align: center;
+}
+.nome h1{
+    margin: 0px;
+}
+.infos button{
+    width: 200px;
+    height: 40px;
+    background-color: #2F9C4D;
+    border: none;
+    color: white;
+}
+.compras{
+    min-height: 30vh;
+    height: auto;
+}
+.produtosComprados{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    
+}
+.card{
+    width: 180px;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+.card .image{
+    width: 100%;
+    height: 120px;
+}
+.card .image img{
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.card .titulo{
+    width: 90%;
+    max-height:80px;
+    height: auto;
+    font-size: 15px;
+    margin-left: 5%;
+}
+.card .titulo p{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+}
+.card .preco{
+    width: 100%;
+    height:40px;
+    font-size: 20px;
+}
+.card .preco h4{
+    margin: 0px;
+}
+.card .quantidade{
+    width: 100%;
+    font-size: 15px;
+}
+.card .botoes{
+    width: 100%;
+    height: auto;
+}
+.botoes button{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    border: none;
+    color:white
+}
+.red{
+    background-color: #c33939;
+}
+.green{
+    background-color: #2F9C4D;
+}
+.avaliar{
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+.avaliar button{
+    width: 100%;
+    height: 30px;
+    color: white;
+    border: none;
+    background-color: #2F9C4D;
+}
+.avaliacao{
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.avaliacao div{
+    width: 250px;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+.avaliacao div p{
+    width: 90%;
+    margin-left: 2.5%;
+}
+.avaliacao div input{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.avaliacao button{
+    width: 80%;
+    margin-bottom: 10px;
+    height: 30px;
+    background-color: #2F9C4D;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+@media (max-width: 397px) {
+    .card{
+        margin-right: 0px;
+    }
+    .produtosComprados{
+        justify-content: space-around;
+    }
+}
