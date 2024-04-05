@@ -13,7 +13,7 @@
                 </div>
                 <div class="center carrinho">
                     <p *ngIf="!usuario" [routerLink]="['/loginUsuario', false]">Olá, faça seu login</p>
-                    <p *ngIf="usuario" [routerLink]="['/perfilUsuario']">Perfil</p>
+                    <p class="perfil" *ngIf="usuario" [routerLink]="['/perfilUsuario']">Perfil</p>
                     <img src="../../../assets/carrinho-amazing.png" alt="carrinho" [routerLink]="['/carrinho']">
                 </div>
             </div>
