@@ -6,7 +6,7 @@ import { ProdutoService } from 'src/app/services/produto.service';
 @Component({
   selector: 'app-pesquisar',
   templateUrl: './pesquisar.component.html',
-  styleUrls: ['./pesquisar.component.css']
+  styleUrls: ['../../../shared/paginacao/paginacao.component.css', './pesquisar.component.css']
 })
 
 export class PesquisarComponent {
@@ -14,6 +14,7 @@ export class PesquisarComponent {
   pagina!: number;
   produtos!:Produto[];
   numeroPaginaUsuario!:number;
+  mostrarPaginacao: boolean = true;
 
   constructor(private route: ActivatedRoute, private produtoService:ProdutoService, private router: Router) { }
 
@@ -26,6 +27,9 @@ export class PesquisarComponent {
       this.produtoService.pesquisarProdutos(this.palavraPesquisada, this.pagina).subscribe({
         next: (produtos:Produto[]) => {
           this.produtos = produtos;
+          if(this.produtos.length<18){
+            this.mostrarPaginacao=false;
+          }
         },
         error: (error) => {
           //feedback
@@ -44,6 +48,5 @@ export class PesquisarComponent {
         this.router.navigate(['/pesquisar', this.palavraPesquisada, this.pagina]);
       }
     }
-    
   }
 }
