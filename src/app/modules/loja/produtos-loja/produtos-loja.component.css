@@ -52,6 +52,7 @@
 .editar .red{
     background-color: #c33939;
 }
+
 @media (max-width: 500px) {
     .pesquisar{
         display: block;
