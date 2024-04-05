@@ -13,6 +13,7 @@ import { AdicionarCategoriaComponent } from './adicionar-categoria/adicionar-cat
 import { VendasComponent } from './vendas/vendas.component';
 import { LoginLojaComponent } from './login-loja/login-loja.component';
 import { AtualizarSenhaLojaComponent } from './atualizar-senha-loja/atualizar-senha-loja.component';
+import { PerfilLojaComponent } from './perfil-loja/perfil-loja.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AtualizarSenhaLojaComponent } from './atualizar-senha-loja/atualizar-se
     AdicionarCategoriaComponent,
     VendasComponent,
     LoginLojaComponent,
-    AtualizarSenhaLojaComponent
+    AtualizarSenhaLojaComponent,
+    PerfilLojaComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { AtualizarSenhaLojaComponent } from './atualizar-senha-loja/atualizar-se
     AdicionarCategoriaComponent,
     VendasComponent,
     LoginLojaComponent,
-    AtualizarSenhaLojaComponent
+    AtualizarSenhaLojaComponent,
+    PerfilLojaComponent
   ]
 })
 export class LojaModule { }
