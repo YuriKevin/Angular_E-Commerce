@@ -20,6 +20,7 @@
 .logo{
     height: 100%;
     width: 40%;
+    margin: auto;
 }
 .logo img{
     width: 120px;
@@ -52,11 +53,15 @@
 .verificada{
     min-height: 40px;
     height: auto;
-    font-size: 10px;
+    font-size: 15px;
 }
 .verificada img{
-    width: 20px;
+    width: 30px;
     margin-right: 10px;
+}
+.vendidos p{
+    margin: 0px;
+    margin-top: 5px;
 }
 @media (max-width: 540px) {
     .loja{
