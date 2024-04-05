@@ -3,4 +3,5 @@ export interface LojaDTO {
     nome: string;
     logo: string;
     quantidadeVendida:number;
+    avaliacao:number;
 }

@@ -9,4 +9,5 @@ export interface Loja {
     quantidadeVendida:number;
     logo:string;
     categorias:Categoria[];
+    avaliacao:number;
 }
