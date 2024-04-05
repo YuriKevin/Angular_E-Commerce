@@ -54,11 +54,15 @@ header .carrinho{
 }
 header .carrinho p{
     margin-top: 100px;
+    margin-right: 10px;
+}
+header .carrinho .perfil{
+    margin-right: 20px;
 }
 header .carrinho img{
-    height: 60px;
+    height: 40px;
     width: auto;
-    margin-top: 12px;
+    margin-top: 8px;
     margin-right: 2vw;
     margin-left: 5px;
 }
@@ -108,7 +112,7 @@ header .rotas .links{
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
     }
     header .logo img{
         height: 100%;
@@ -134,7 +138,13 @@ header .rotas .links{
         margin: 0px;
     }
     header .carrinho p{
-        display: none;
+        position: absolute;
+        height: 20px;
+        width: auto;
+        margin: 0px;
+        top: 25px;
+        right: 15px;
+        font-size: 18px;
     }
     header .links{
         display: none;
