@@ -18,7 +18,6 @@ import { CarrinhoComponent } from './modules/produto/carrinho/carrinho.component
 import { CreditosComponent } from './modules/usuario/creditos/creditos.component';
 import { FeedbackComponent } from './shared/feedback/feedback.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
-import { ComprasComponent } from './modules/usuario/compras/compras.component';
 import { VendasComponent } from './modules/loja/vendas/vendas.component';
 import { PesquisarComponent } from './modules/produto/pesquisar/pesquisar.component';
 import { LoginUsuarioComponent } from './modules/usuario/login-usuario/login-usuario.component';
@@ -32,6 +31,7 @@ import { RecentesComponent } from './modules/produto/recentes/recentes.component
 import { ProdutosAmazingComponent } from './modules/produto/produtos-amazing/produtos-amazing.component';
 import { PerfilUsuarioComponent } from './modules/usuario/perfil-usuario/perfil-usuario.component';
 import { AtualizarDadosComponent } from './modules/usuario/atualizar-dados/atualizar-dados.component';
+import { PerfilLojaComponent } from './modules/loja/perfil-loja/perfil-loja.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -46,14 +46,13 @@ const routes: Routes = [
   { path: 'cadastrarLoja', component: CadastrarLojaComponent},
   { path: 'cadastrarProduto', component: CadastrarProdutoComponent},
   { path: 'perfilLoja/:id', component: PerfilComponent},
-  { path: 'produtosLoja', component: ProdutosLojaComponent},
+  { path: 'produtosLoja/:id/:pagina', component: ProdutosLojaComponent},
   { path: 'adicionarCategoria', component: AdicionarCategoriaComponent},
   { path: 'carrinho', component: CarrinhoComponent},
   { path: 'creditos', component: CreditosComponent},
   { path: 'feedback', component: FeedbackComponent},
   { path: 'notFound', component: NotFoundComponent},
-  { path: 'compras', component: ComprasComponent},
-  { path: 'vendas', component: VendasComponent},
+  { path: 'vendas/:pagina', component: VendasComponent},
   { path: 'pesquisar/:palavra/:pagina', component: PesquisarComponent},
   { path: 'loginUsuario/:retornarAoCarrinho', component: LoginUsuarioComponent},
   { path: 'loginLoja', component: LoginLojaComponent},
@@ -65,6 +64,7 @@ const routes: Routes = [
   { path: 'recentes', component: RecentesComponent},
   { path: 'amazing', component: ProdutosAmazingComponent},
   { path: 'perfilUsuario', component: PerfilUsuarioComponent},
+  { path: 'perfilLoja', component: PerfilLojaComponent},
   { path: 'atualizarDados', component: AtualizarDadosComponent},
   { path: '**', redirectTo: 'notFound' },
 ];
