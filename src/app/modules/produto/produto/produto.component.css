@@ -24,8 +24,7 @@
 }
 .card .titulo{
     width: 90%;
-    max-height:80px;
-    height: auto;
+    height:51px;
     font-size: 15px;
     margin-left: 5%;
 }
