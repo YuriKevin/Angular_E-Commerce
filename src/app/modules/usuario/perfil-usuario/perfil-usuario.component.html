@@ -5,6 +5,7 @@
         <div class="center"><p>Email: {{this.usuario.email}}</p></div>
         <div class="center"><p>Créditos: R$ {{this.usuario.credito}}</p></div>
         <div class="atualizar center"><button [routerLink]="['/atualizarDados']">Atualizar dados</button></div>
+        <div class="atualizar center"><button [routerLink]="['/creditos']">Recarregar créditos</button></div>
     </div>
     <div class="compras">
         <div class="center nome"><h1>Suas compras</h1></div>
@@ -27,12 +28,17 @@
                     </div>
                     <div class="botoes">
                         <button class="green" *ngIf="!produto.avaliado" (click)="realizarAvaliacao(produto)">Avaliar</button>
-                        <button class="red">Cancelar/Reembolso</button>
+                        <button class="red" *ngIf="!produto.cancelado">Cancelar/Reembolso</button>
                     </div>
                 </div>
             </ng-container>
         </div>
     </div>
+</div>
+<div class="paginacao center">
+    <button (click)="carregarMaisCompras(false)">Anterior</button>
+    <p>página: {{this.pagina}}</p>
+    <button (click)="carregarMaisCompras(true)">Próximo</button>
 </div>
 <div *ngIf="avaliacao" class="avaliacao">
     <div>
