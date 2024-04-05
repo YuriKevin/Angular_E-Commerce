@@ -4,7 +4,7 @@
         <app-produto [produto]="produto"></app-produto>
     </ng-container>
 </app-listar>
-<div class="paginacao center">
+<div *ngIf="mostrarPaginacao" class="paginacao center">
     <button (click)="mudarPagina(false)">Anterior</button>
     <p>página: {{this.numeroPaginaUsuario}}</p>
     <button (click)="mudarPagina(true)">Próximo</button>
