@@ -9,7 +9,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-perfil-usuario',
   templateUrl: './perfil-usuario.component.html',
-  styleUrls: ['./perfil-usuario.component.css']
+  styleUrls: ['../../../shared/paginacao/paginacao.component.css','./perfil-usuario.component.css']
 })
 export class PerfilUsuarioComponent implements OnInit{
   usuario!:Usuario;
@@ -17,6 +17,8 @@ export class PerfilUsuarioComponent implements OnInit{
   avaliacao:boolean = false;
   produtoAvaliado!:ProdutoComprado;
   valorAvaliacao!: number;
+  pagina:number = 0;
+  mostrarPaginacao: boolean = true;
 
   constructor(private router:Router, private usuarioService:UsuarioService, private produtoCompradoService:ProdutoCompradoService){
 
@@ -32,6 +34,9 @@ export class PerfilUsuarioComponent implements OnInit{
         next: (produtos:ProdutoComprado[]) => {
           this.produtosComprados = produtos;
           console.log(this.produtosComprados);
+          if(this.produtosComprados.length<18){
+            this.mostrarPaginacao=false;
+          }
         },
         error: (error) => {
           console.log(error);
@@ -58,6 +63,38 @@ export class PerfilUsuarioComponent implements OnInit{
         console.log(error);
       }
     });
+  }
+
+  carregarMaisCompras(avancar:boolean){
+    if(avancar){
+      if(this.produtosComprados.length==18){
+        this.pagina++;
+        this.produtoCompradoService.carregarCompras(this.usuario.id, this.pagina).subscribe({
+          next: (produtos:ProdutoComprado[]) => {
+            this.produtosComprados = produtos;
+            console.log(this.produtosComprados);
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        });
+      }
+    }
+    else{
+      if(this.pagina!=0){
+        this.pagina--;
+        this.produtoCompradoService.carregarCompras(this.usuario.id, this.pagina).subscribe({
+          next: (produtos:ProdutoComprado[]) => {
+            this.produtosComprados = produtos;
+            console.log(this.produtosComprados);
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        });
+      }
+    }
+    
   }
 
 
