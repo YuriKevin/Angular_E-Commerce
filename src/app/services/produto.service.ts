@@ -181,4 +181,42 @@ export class ProdutoService {
     );
   }
 
+  pesquisarProdutosDeUmaLoja(lojaId:number, pagina:number): Observable<Produto[]> {
+    const params = new HttpParams().set('pagina', pagina.toString());
+    return this.httpClient.get<Produto[]>(`${this.apiURL}produto/loja/${lojaId}`, { params })
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Erro desconhecido';
+        if (error.error instanceof ErrorEvent) {
+          // Erro do cliente
+          errorMessage = `Erro: ${error.error.message}`;
+        } else {
+          // Erro do servidor
+          errorMessage = error.error.message;
+        }
+        return throwError(errorMessage);
+      })
+    );
+  }
+
+  pesquisarProdutosDeUmaLojaPorTitulo(lojaId:number, titulo:string, pagina:number): Observable<Produto[]> {
+    const params = new HttpParams()
+    .set('pagina', pagina.toString())
+    .set('titulo', titulo);
+    return this.httpClient.get<Produto[]>(`${this.apiURL}produto/loja/titulo/${lojaId}`, { params })
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Erro desconhecido';
+        if (error.error instanceof ErrorEvent) {
+          // Erro do cliente
+          errorMessage = `Erro: ${error.error.message}`;
+        } else {
+          // Erro do servidor
+          errorMessage = error.error.message;
+        }
+        return throwError(errorMessage);
+      })
+    );
+  }
+
 }
