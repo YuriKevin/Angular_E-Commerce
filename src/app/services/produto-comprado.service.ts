@@ -60,6 +60,24 @@ export class ProdutoCompradoService {
     );
   }
 
+  carregarVendasDeUmaLoja(lojaId:number, pagina:number): Observable<any> {
+    const params = new HttpParams().set('pagina', pagina);
+    return this.httpClient.get<any>(`${this.apiURL}compra/loja/${lojaId}`, { params })
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Erro desconhecido';
+        if (error.error instanceof ErrorEvent) {
+          // Erro do cliente
+          errorMessage = `Erro: ${error.error.message}`;
+        } else {
+          // Erro do servidor
+          errorMessage = error.error.message;
+        }
+        return throwError(errorMessage);
+      })
+    );
+  }
+
   avaliarProduto(id:number, avaliacao:number): Observable<any> {
     const params = new HttpParams().set('avaliacao', avaliacao);
     return this.httpClient.put<any>(`${this.apiURL}compra/avaliarProduto/${id}`, {}, { params })
