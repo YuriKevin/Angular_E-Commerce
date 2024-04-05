@@ -11,7 +11,6 @@
 .infos{
     display: block;
     margin-top: 20px;
-    margin-bottom: 70px;
 }
 .infos > *{
     width: 100%;
@@ -22,6 +21,7 @@
 .nome{
     font-size: 10px;
     text-align: center;
+    margin-bottom: 20px;
 }
 .nome h1{
     margin: 0px;
@@ -32,10 +32,12 @@
     background-color: #2F9C4D;
     border: none;
     color: white;
+    margin-top: 20px;
 }
 .compras{
     min-height: 30vh;
     height: auto;
+    margin-top: 40px;
 }
 .produtosComprados{
     display: flex;
@@ -64,8 +66,7 @@
 }
 .card .titulo{
     width: 90%;
-    max-height:80px;
-    height: auto;
+    height:80px;
     font-size: 15px;
     margin-left: 5%;
 }
