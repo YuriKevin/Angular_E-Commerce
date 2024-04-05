@@ -6,18 +6,21 @@ import { FooterComponent } from './footer/footer.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
+import { PaginacaoComponent } from './paginacao/paginacao.component';
 
 @NgModule({
     declarations: [
         HeaderComponent,
         FooterComponent,
         FeedbackComponent,
-        NotFoundComponent
+        NotFoundComponent,
+        PaginacaoComponent
     ],
     exports: [
         HeaderComponent,
         FooterComponent,
-        FeedbackComponent
+        FeedbackComponent,
+        PaginacaoComponent
     ],
     imports: [
         CommonModule,
