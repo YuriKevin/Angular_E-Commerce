@@ -7,16 +7,21 @@
             <h3>{{loja.nome}}</h3>
         </div>
         <div class="avaliacao center">
-            <img src="../../../../assets/estrela_amazing.png" alt="">
-            <img src="../../../../assets/estrela_amazing.png" alt="">
-            <img src="../../../../assets/estrela_amazing.png" alt="">
-            <img src="../../../../assets/estrela_amazing.png" alt="">
-            <img src="../../../../assets/estrela_amazing.png" alt="">
+            <p *ngIf="loja.avaliacao < 0.9">Avaliação baixa | </p>
+            <img *ngIf="loja.avaliacao >= 0.9" src="../../../../assets/estrela_amazing.png" alt="">
+            <img *ngIf="loja.avaliacao >= 1.7" src="../../../../assets/estrela_amazing.png" alt="">
+            <img *ngIf="loja.avaliacao >= 2.7" src="../../../../assets/estrela_amazing.png" alt="">
+            <img *ngIf="loja.avaliacao >= 3.7" src="../../../../assets/estrela_amazing.png" alt="">
+            <img *ngIf="loja.avaliacao >= 4.7" src="../../../../assets/estrela_amazing.png" alt="">
+            <p *ngIf="loja.avaliacao>=0.9">Avaliação: {{loja.avaliacao}}</p>
+           
+        </div>
+        <div class="vendidos">
             <p>{{loja.quantidadeVendida}} vendidos</p>
         </div>
         <div class="verificada center">
             <img src="../../../../assets/amazing_security_icon.png" alt="">
-            <p>Esta é uma loja verificada pela Amazing</p>
+            <p>Esta é uma loja confiável</p>
         </div>
     </div>
 </div>
