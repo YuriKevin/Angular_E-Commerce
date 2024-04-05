@@ -33,7 +33,7 @@ export class CadastroUsuarioComponent {
     this.usuarioService.cadastrar(this.email, this.nome, this.senha).subscribe({
       next: (usuario:Usuario) => {
         this.usuarioService.setUsuario(usuario);
-        this.router.navigate(['/loginUsuario']);
+        this.router.navigate(['/loginUsuario', false]);
       },
       error: (error) => {
         this.feedbackComponent.open("Ocorreu um erro ao se cadastrar.", true)
