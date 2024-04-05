@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="center infos" *ngIf="loja">
+    <app-loja [loja]="loja"></app-loja>
+</div>
+<div class="center atualizar">
+    <button>Atualizar dados</button>
+</div>
+<div class="menu">
+    <div class="center">
+        <button [routerLink]="['/produtosLoja', this.loja.id, 0]">Ir para produtos</button>
+    </div>  
+    <div class="center">
+        <button [routerLink]="['/vendas', 0]">Ir para vendas</button>
+    </div>
+    <div class="center">
+        <button>Adicionar categoria</button>
+    </div>
+</div>
+<app-secao [titulo]="'Mais vendidos'" [produtos]="maisVendidos">
+<div class="categorias">
+    <div class="categoria">
+
+    </div>
+</div>
+<div class="adicionar-categoria"></div>
+<app-footer></app-footer>
