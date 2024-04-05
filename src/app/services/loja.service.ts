@@ -25,9 +25,10 @@ export class LojaService {
     this.login(1111, "1234").subscribe({
       next: (loja:Loja) => {
         this.setLoja(loja);
+        console.log("funcionou");
       },
       error: (error) => {
-        
+        console.log("error");
       }
     });
 
