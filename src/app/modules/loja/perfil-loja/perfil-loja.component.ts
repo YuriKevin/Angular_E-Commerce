@@ -20,7 +20,7 @@ export class PerfilLojaComponent implements OnInit{
 
   ngOnInit(): void {
     /*this.loja = this.lojaService.getLoja();*/
-    this.lojaService.login(1111, "1234").subscribe({
+    this.lojaService.login(1111, "12345").subscribe({
       next: (loja:Loja) => {
         this.lojaService.setLoja(loja);
         this.loja=loja;
@@ -36,11 +36,35 @@ export class PerfilLojaComponent implements OnInit{
             console.log(error);
           }
         });
+        this.lojaService.listarCategoriasDeUmaLoja(this.loja.id).subscribe({
+          next: (categorias:Categoria[]) => {
+            this.categorias = categorias;
+            console.log(this.categorias);
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        });
       },
       error: (error) => {
         
       }
     });
+  }
+
+  removerCategoria(categoria: Categoria) {
+    this.lojaService.removerCategoria(this.loja.id, categoria.id).subscribe({
+      next: () => {
+        const index = this.categorias.indexOf(categoria);
+        if (index !== -1) {
+          this.categorias.splice(index, 1);
+        }
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
     
   }
+
 }
