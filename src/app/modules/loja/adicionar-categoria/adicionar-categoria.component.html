@@ -1,77 +1,33 @@
 <app-header></app-header>
 <div class="loja center">
-    <app-loja></app-loja>
+    <app-loja [loja]="loja"></app-loja>
 </div>
 <div class="center titulo">
    <h1>Título da categoria:</h1>
-   <input type="text">
+   <input type="text" [(ngModel)]="nomeCategoria">
 </div>
- <app-secao>
-    <div class="adicionar-remover red">
-        <app-produto></app-produto>
-        <button>Remover</button>
+<div class="center titulo green">
+    <button (click)="adicionarCategoria()">Adicionar categoria</button>
+ </div>
+<app-listar *ngIf="produtosAdicionados.length > 0">
+    <div class="adicionar-remover red" *ngFor="let produto of produtosAdicionados">
+        <app-produto [produto]="produto"></app-produto>
+        <button (click)="removerProduto(produto)">Remover</button>
     </div>
-    <div class="adicionar-remover red">
-        <app-produto></app-produto>
-        <button>Remover</button>
-    </div>
-    <div class="adicionar-remover red">
-        <app-produto></app-produto>
-        <button>Remover</button>
-    </div>
-    <div class="adicionar-remover red">
-        <app-produto></app-produto>
-        <button>Remover</button>
-    </div>
-    <div class="adicionar-remover red">
-        <app-produto></app-produto>
-        <button>Remover</button>
-    </div>
-    <div class="adicionar-remover red">
-        <app-produto></app-produto>
-        <button>Remover</button>
-    </div>
-    <div class="adicionar-remover red">
-        <app-produto></app-produto>
-        <button>Remover</button>
-    </div>
-    <div class="adicionar-remover red">
-        <app-produto></app-produto>
-        <button>Remover</button>
-    </div>
- </app-secao>
-<app-listar>
-    <div class="adicionar-remover green">
-        <app-produto></app-produto>
-        <button>Adicionar</button>
-    </div>
-    <div class="adicionar-remover green">
-        <app-produto></app-produto>
-        <button>Adicionar</button>
-    </div>
-    <div class="adicionar-remover green">
-        <app-produto></app-produto>
-        <button>Adicionar</button>
-    </div>
-    <div class="adicionar-remover green">
-        <app-produto></app-produto>
-        <button>Adicionar</button>
-    </div>
-    <div class="adicionar-remover green">
-        <app-produto></app-produto>
-        <button>Adicionar</button>
-    </div>
-    <div class="adicionar-remover green">
-        <app-produto></app-produto>
-        <button>Adicionar</button>
-    </div>
-    <div class="adicionar-remover green">
-        <app-produto></app-produto>
-        <button>Adicionar</button>
-    </div>
-    <div class="adicionar-remover green">
-        <app-produto></app-produto>
-        <button>Adicionar</button>
+ </app-listar>
+ <div class="center pesquisar">
+    <h2>Pesquisar:</h2>
+    <input type="text" [(ngModel)]="tituloInput" (keyup.enter)="pesquisar()">
+</div>
+<app-listar *ngIf="produtos">
+    <div class="adicionar-remover green" *ngFor="let produto of produtos">
+        <app-produto [produto]="produto"></app-produto>
+        <button (click)="adicionarProduto(produto)">Adicionar</button>
     </div>
 </app-listar>
+<div class="paginacao center" *ngIf="produtos">
+    <button (click)="mudarPagina(false)">Anterior</button>
+    <p>página: {{this.numeroPaginaUsuario}}</p>
+    <button (click)="mudarPagina(true)">Próximo</button>
+</div>
 <app-footer></app-footer>
