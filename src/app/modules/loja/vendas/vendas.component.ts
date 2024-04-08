@@ -19,6 +19,7 @@ export class VendasComponent implements OnInit{
   numeroPaginaUsuario!:number;
   numeroCompraInput!:number;
   mostrarPaginacao: boolean = true;
+  produtoPesquisado!:ProdutoComprado;
 
   constructor(private route: ActivatedRoute, private lojaService:LojaService, private produtoService:ProdutoService, private router: Router, private produtoCompradoService:ProdutoCompradoService) { }
    
@@ -26,7 +27,7 @@ export class VendasComponent implements OnInit{
     this.route.params.subscribe(params => {
       this.pagina = + params['pagina'];
     });
-    this.lojaService.login(1111, "1234").subscribe({
+    this.lojaService.login(1111, "12345").subscribe({
       next: (loja:Loja) => {
         this.loja = loja;
         if(this.loja){
@@ -66,5 +67,29 @@ export class VendasComponent implements OnInit{
       }
     }
     
+  }
+
+  reembolsar(produto:ProdutoComprado){
+    this.lojaService.cancelarCompra(produto.id).subscribe({
+      next: () => {
+        produto.cancelado = true;
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
+
+  pesquisar(){
+    if(this.numeroCompraInput){
+    this.produtoCompradoService.encontrarProdutoComprado(this.numeroCompraInput).subscribe({
+      next: (produto:ProdutoComprado) => {
+        this.produtoPesquisado = produto;
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
   }
 }
