@@ -219,4 +219,22 @@ export class ProdutoService {
     );
   }
 
+  pesquisarPorCategoria(categoria:string, pagina:number): Observable<Produto[]> {
+    const params = new HttpParams().set('pagina', pagina.toString());
+    return this.httpClient.get<Produto[]>(`${this.apiURL}produto/categoria/${categoria}`, { params })
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Erro desconhecido';
+        if (error.error instanceof ErrorEvent) {
+          // Erro do cliente
+          errorMessage = `Erro: ${error.error.message}`;
+        } else {
+          // Erro do servidor
+          errorMessage = error.error.message;
+        }
+        return throwError(errorMessage);
+      })
+    );
+  }
+
 }
