@@ -23,6 +23,8 @@ import { ProdutoModule } from './modules/produto/produto.module';
 import { PerfilUsuarioComponent } from './modules/usuario/perfil-usuario/perfil-usuario.component';
 import { AtualizarDadosComponent } from './modules/usuario/atualizar-dados/atualizar-dados.component';
 import { PerfilLojaComponent } from './modules/loja/perfil-loja/perfil-loja.component';
+import { AtualizarProdutoComponent } from './modules/loja/atualizar-produto/atualizar-produto.component';
+import { AtualizarLojaComponent } from './modules/loja/atualizar-loja/atualizar-loja.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { PerfilLojaComponent } from './modules/loja/perfil-loja/perfil-loja.comp
     AtualizarSenhaUsuarioComponent,
     PerfilUsuarioComponent,
     AtualizarDadosComponent,
-    PerfilLojaComponent
+    PerfilLojaComponent,
+    AtualizarProdutoComponent,
+    AtualizarLojaComponent
   ],
   imports: [
     BrowserModule,
