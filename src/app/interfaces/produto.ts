@@ -4,6 +4,8 @@ export interface Produto {
     id:number;
     titulo:string;
     valor:number;
+    categoria:string;
+    nomeLoja:string;
     imagens: string[];
     detalhes: DetalhesProduto[];
     quantidade:number;
