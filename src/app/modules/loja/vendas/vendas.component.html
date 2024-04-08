@@ -3,8 +3,20 @@
 <div class="pesquisar">
     <div>
         <h3>Pesquisar pelo número da compra:</h3>
-        <input type="number">
+        <input type="number" [(ngModel)]="numeroCompraInput" (keyup.enter)="pesquisar()">
     </div>
+</div>
+<div *ngIf="produtoPesquisado">
+    <app-listar>
+        <div class="reembolso">
+            <h4>Cliente: {{produtoPesquisado.nomeUsuario}}</h4>
+            <h4>Quantidade: {{produtoPesquisado.quantidade}}</h4>
+            <h4>Número: {{produtoPesquisado.id}}</h4>
+            <img [src]="produtoPesquisado.imagem" alt="">
+            <button class="red" *ngIf="!produtoPesquisado.cancelado" (click)="reembolsar(produtoPesquisado)">Cancelar/Reembolsar</button>
+            <button class="purple" *ngIf="produtoPesquisado.cancelado">Compra cancelada</button>
+        </div>
+    </app-listar>
 </div>
 <app-listar>
     <div class="reembolso" *ngFor="let produto of produtos">
@@ -12,7 +24,8 @@
         <h4>Quantidade: {{produto.quantidade}}</h4>
         <h4>Número: {{produto.id}}</h4>
         <img [src]="produto.imagem" alt="">
-        <button>Cancelar/Reembolsar</button>
+        <button class="red" *ngIf="!produto.cancelado" (click)="reembolsar(produto)">Cancelar/Reembolsar</button>
+        <button class="purple" *ngIf="produto.cancelado">Compra cancelada</button>
     </div>
 </app-listar>
 <div *ngIf="mostrarPaginacao" class="paginacao center">
