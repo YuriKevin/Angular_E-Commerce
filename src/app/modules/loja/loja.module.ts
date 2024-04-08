@@ -14,6 +14,8 @@ import { VendasComponent } from './vendas/vendas.component';
 import { LoginLojaComponent } from './login-loja/login-loja.component';
 import { AtualizarSenhaLojaComponent } from './atualizar-senha-loja/atualizar-senha-loja.component';
 import { PerfilLojaComponent } from './perfil-loja/perfil-loja.component';
+import { AtualizarProdutoComponent } from './atualizar-produto/atualizar-produto.component';
+import { AtualizarLojaComponent } from './atualizar-loja/atualizar-loja.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PerfilLojaComponent } from './perfil-loja/perfil-loja.component';
     VendasComponent,
     LoginLojaComponent,
     AtualizarSenhaLojaComponent,
-    PerfilLojaComponent
+    PerfilLojaComponent,
+    AtualizarProdutoComponent,
+    AtualizarLojaComponent
   ],
   imports: [
     CommonModule,
