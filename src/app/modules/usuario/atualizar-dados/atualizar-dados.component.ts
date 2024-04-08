@@ -40,8 +40,4 @@ export class AtualizarDadosComponent implements OnInit{
       });
   }
 
-  mudarSenha(){
-
-  }
-
 }
