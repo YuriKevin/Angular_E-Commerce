@@ -12,15 +12,16 @@
                     <img src="../../../assets/logo_amazing_a.png" alt="logo">
                 </div>
                 <div class="center carrinho">
-                    <p *ngIf="!usuario" [routerLink]="['/loginUsuario', false]">Olá, faça seu login</p>
+                    <p *ngIf="!usuario && !loja" [routerLink]="['/loginUsuario', false]">Olá, faça seu login</p>
                     <p class="perfil" *ngIf="usuario" [routerLink]="['/perfilUsuario']">Perfil</p>
+                    <p class="perfil" *ngIf="loja" [routerLink]="['/perfilLoja']">Perfil</p>
                     <img src="../../../assets/carrinho-amazing.png" alt="carrinho" [routerLink]="['/carrinho']">
                 </div>
             </div>
         </div>
     </div>
     <div class="rotas center">
-        <div class="center categorias">
+        <div class="center categorias" (click)="abrirCategorias()">
             <img src="../../../assets/menu_amazing.png" alt="">
             <p>Categorias</p>
         </div>
@@ -32,3 +33,33 @@
         </div>
     </div>
 </header>
+<div class="background-black" *ngIf="categorias">
+    <div class="categorias-div">
+        <div class="titulo-categorias">
+            <h3>Categorias</h3>
+            <div class="close-categorias" (click)="abrirCategorias()">
+                X
+            </div>
+        </div>
+        <p [routerLink]="['/categoria', 'Alimentos e bebidas', 0]">Alimentos e bebidas</p>
+        <p [routerLink]="['/categoria', 'Automotivo', 0]">Automotivo</p>
+        <p [routerLink]="['/categoria', 'Bebês', 0]">Bebês</p>
+        <p [routerLink]="['/categoria', 'Beleza e cuidados pessoais', 0]">Beleza e cuidados pessoais</p>
+        <p [routerLink]="['/categoria', 'Bolsas, malas e mochilas', 0]">Bolsas, malas e mochilas</p>
+        <p [routerLink]="['/categoria', 'Brinquedos e jogos', 0]">Brinquedos e jogos</p>
+        <p [routerLink]="['/categoria', 'Casa', 0]">Casa</p>
+        <p [routerLink]="['/categoria', 'Celulares', 0]">Celulares</p>
+        <p [routerLink]="['/categoria', 'Computadores e informática', 0]">Computadores e informática</p>
+        <p [routerLink]="['/categoria', 'Cozinha', 0]">Cozinha</p>
+        <p [routerLink]="['/categoria', 'Eletrônicos, TV e áudio', 0]">Eletrônicos, TV e áudio</p>
+        <p [routerLink]="['/categoria', 'Ferramentas e construção', 0]">Ferramentas e construção</p>
+        <p [routerLink]="['/categoria', 'Filmes, séries e música', 0]">Filmes, séries e música</p>
+        <p [routerLink]="['/categoria', 'Games e consoles', 0]">Games e consoles</p>
+        <p [routerLink]="['/categoria', 'Higiene pessoal', 0]">Higiene pessoal</p>
+        <p [routerLink]="['/categoria', 'Jardim', 0]">Jardim</p>
+        <p [routerLink]="['/categoria', 'Limpeza', 0]">Limpeza</p>
+        <p [routerLink]="['/categoria', 'Livros', 0]">Livros</p>
+        <p [routerLink]="['/categoria', 'Material escolar e papelaria', 0]">Material escolar e papelaria</p>
+        <p [routerLink]="['/categoria', 'Roupas, calçados e acessórios', 0]">Roupas, calçados e acessórios</p>
+    </div>
+</div>
