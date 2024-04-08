@@ -32,6 +32,9 @@ import { ProdutosAmazingComponent } from './modules/produto/produtos-amazing/pro
 import { PerfilUsuarioComponent } from './modules/usuario/perfil-usuario/perfil-usuario.component';
 import { AtualizarDadosComponent } from './modules/usuario/atualizar-dados/atualizar-dados.component';
 import { PerfilLojaComponent } from './modules/loja/perfil-loja/perfil-loja.component';
+import { AtualizarProdutoComponent } from './modules/loja/atualizar-produto/atualizar-produto.component';
+import { AtualizarLojaComponent } from './modules/loja/atualizar-loja/atualizar-loja.component';
+import { CategoriaComponent } from './modules/produto/categoria/categoria.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -66,6 +69,9 @@ const routes: Routes = [
   { path: 'perfilUsuario', component: PerfilUsuarioComponent},
   { path: 'perfilLoja', component: PerfilLojaComponent},
   { path: 'atualizarDados', component: AtualizarDadosComponent},
+  { path: 'atualizarLoja', component: AtualizarLojaComponent},
+  { path: 'atualizarProduto/:id', component: AtualizarProdutoComponent},
+  { path: 'categoria/:palavra/:pagina', component: CategoriaComponent},
   { path: '**', redirectTo: 'notFound' },
 ];
 
