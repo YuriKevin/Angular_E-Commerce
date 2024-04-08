@@ -17,9 +17,35 @@
                 <h2>Quantidade</h2>
                 <input type="number" [(ngModel)]="quantidade">
             </div>
-            <div class="campo">
-                <h2>Categoria</h2>
-                <input type="text" [(ngModel)]="categoria">
+            <div class="campo categorias">
+                <button (click)="mostrarCategorias()">Escolher categoria</button>
+                <div class="background-black" *ngIf="categorias">
+                    <div class="opcoes-categorias">
+                        <p (click)="selecionarCategoria('Alimentos e bebidas')">Alimentos e bebidas</p>
+                        <p (click)="selecionarCategoria('Automotivo')">Automotivo</p>
+                        <p (click)="selecionarCategoria('Bebês')">Bebês</p>
+                        <p (click)="selecionarCategoria('Beleza e cuidados pessoais')">Beleza e cuidados pessoais</p>
+                        <p (click)="selecionarCategoria('Bolsas, malas e mochilas')">Bolsas, malas e mochilas</p>
+                        <p (click)="selecionarCategoria('Brinquedos e jogos')">Brinquedos e jogos</p>
+                        <p (click)="selecionarCategoria('Casa')">Casa</p>
+                        <p (click)="selecionarCategoria('Celulares')">Celulares</p>
+                        <p (click)="selecionarCategoria('Computadores e informática')">Computadores e informática</p>
+                        <p (click)="selecionarCategoria('Cozinha')">Cozinha</p>
+                        <p (click)="selecionarCategoria('Eletrônicos, TV e áudio')">Eletrônicos, TV e áudio</p>
+                        <p (click)="selecionarCategoria('Ferramentas e construção')">Ferramentas e construção</p>
+                        <p (click)="selecionarCategoria('Filmes, séries e música')">Filmes, séries e música</p>
+                        <p (click)="selecionarCategoria('Games e consoles')">Games e consoles</p>
+                        <p (click)="selecionarCategoria('Higiene pessoal')">Higiene pessoal</p>
+                        <p (click)="selecionarCategoria('Jardim')">Jardim</p>
+                        <p (click)="selecionarCategoria('Limpeza')">Limpeza</p>
+                        <p (click)="selecionarCategoria('Livros')">Livros</p>
+                        <p (click)="selecionarCategoria('Material escolar e papelaria')">Material escolar e papelaria</p>
+                        <p (click)="selecionarCategoria('Roupas, calçados e acessórios')">Roupas, calçados e acessórios</p>
+                    </div>
+                </div>
+            </div>
+            <div class="campo disponivel" *ngIf="categoria">
+                <p>Categoria: {{this.categoria}}</p>
             </div>
             <div class="campo disponivel">
                 <h2 *ngIf="disponivel">Disponível</h2>
@@ -35,17 +61,22 @@
                     <input  id="fileInput" type="file" (change)="transformarLogoStringBase64($event)" hidden>
                 </div>
                 <div class="imagens">
-                    <div class="quadrado"><img *ngIf="imagens[0]" [src]="imagens[0]"></div>
-                    <div class="quadrado"><img *ngIf="imagens[1]" [src]="imagens[1]"></div>
-                    <div class="quadrado"><img *ngIf="imagens[2]" [src]="imagens[2]"></div>
-                    <div class="quadrado"><img *ngIf="imagens[3]" [src]="imagens[3]"></div>
-                    <div class="quadrado"><img *ngIf="imagens[4]" [src]="imagens[4]"></div>
-                    <div class="quadrado"><img *ngIf="imagens[5]" [src]="imagens[5]"></div>
+                    <div class="quadrado"><img *ngIf="imagens[0]" [src]="imagens[0]" (click)="removerImagem(0)" class="remover"></div>
+                    <div class="quadrado"><img *ngIf="imagens[1]" [src]="imagens[1]" (click)="removerImagem(1)"></div>
+                    <div class="quadrado"><img *ngIf="imagens[2]" [src]="imagens[2]" (click)="removerImagem(2)"></div>
+                    <div class="quadrado"><img *ngIf="imagens[3]" [src]="imagens[3]" (click)="removerImagem(3)"></div>
+                    <div class="quadrado"><img *ngIf="imagens[4]" [src]="imagens[4]" (click)="removerImagem(4)"></div>
+                    <div class="quadrado"><img *ngIf="imagens[5]" [src]="imagens[5]" (click)="removerImagem(5)"></div>
                 </div>
             </div>
-            <div class="especificacoes" *ngFor="let detalhe of detalhes">
-                <div class="center nome"><p>{{detalhe.titulo}}</p></div>
-                <div class="center descricao"><p>{{detalhe.descricao}}</p></div>
+            <div class="detalhes-container" *ngFor="let detalhe of detalhes">
+                <div class="especificacoes">
+                    <div class="center nome"><input type="text" [(ngModel)]="detalhe.titulo"></div>
+                    <div class="center descricao"><input type="text" [(ngModel)]="detalhe.descricao"></div>
+                </div>
+                <div class="remover-btn">
+                    <button (click)="removerDetalhe(detalhe)">Remover</button>
+                </div>
             </div>
             <div class="detalhes-input">
                 <input type="text" class="titulo-detalhes" placeholder="Título" [(ngModel)]="detalheTitulo">
