@@ -61,11 +61,23 @@
     justify-content: flex-start;
     border: 1px solid black;
 }
-.especificacoes .nome p{
-    margin:5px
+.especificacoes input{
+    margin:5px;
+    border:none;
+    background: none;
+    width: 80%;
+    height:80%
 }
-.especificacoes .descricao p{
-    margin:5px
+.detalhes-container button{
+    width: 100%;
+    height: 30px;
+    background-color: #c33939;
+    color: white;
+    border: none;
+}
+.detalhes-container{
+    display: block;
+    margin-top: 20px;
 }
 .disponivel button{
     width: 255px;
@@ -80,7 +92,42 @@
 .disponivel .red{
     background-color: #c33939;
 }
+.remover:hover {
+    filter: brightness(0.4);
+    cursor: pointer;
+}
+.categorias{
+    font-size: 20px;
+    overflow-y:scroll;
+    max-height: 300px;
+}
+.categorias button{
+    width: 255px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #5C7FFC;
+    color: white;
+    border: none;
 
+}
+.opcoes-categorias{
+    position: fixed;
+    top: 20%;
+    left: auto;
+    background-color: white;
+    border: 1px solid black;
+    overflow-y:scroll;
+    max-height: 300px;
+}
+.background-black{
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 500;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 @media (max-width: 400px) {
     .especificacoes .nome{
             width: 50%;
