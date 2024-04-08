@@ -3,7 +3,10 @@
     <app-loja [loja]="loja"></app-loja>
 </div>
 <div class="center atualizar">
-    <button>Atualizar dados</button>
+    <button [routerLink]="['/atualizarLoja']">Atualizar dados</button>
+</div>
+<div class="center atualizar">
+    <button  [routerLink]="['/atualizarSenhaLoja']">Atualizar senha</button>
 </div>
 <div class="menu">
     <div class="center">
@@ -13,14 +16,17 @@
         <button [routerLink]="['/vendas', 0]">Ir para vendas</button>
     </div>
     <div class="center">
-        <button>Adicionar categoria</button>
+        <button [routerLink]="['/adicionarCategoria']">Adicionar categoria</button>
     </div>
 </div>
-<app-secao [titulo]="'Mais vendidos'" [produtos]="maisVendidos">
-<div class="categorias">
+<app-secao *ngIf="maisVendidos" [titulo]="'Mais vendidos'" [produtos]="maisVendidos"></app-secao>
+<div class="categorias" *ngFor="let categoria of categorias">
     <div class="categoria">
-
+        <app-secao class="secao" [titulo]="categoria.titulo" [produtos]="categoria.produtos">
+        </app-secao>
+    </div>
+    <div class="center remover-btn">
+        <button (click)="removerCategoria(categoria)">Remover categoria</button>
     </div>
 </div>
-<div class="adicionar-categoria"></div>
 <app-footer></app-footer>
