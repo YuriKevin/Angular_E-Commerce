@@ -14,6 +14,7 @@ import { HistoricoComponent } from './historico/historico.component';
 import { MaisVendidosComponent } from './mais-vendidos/mais-vendidos.component';
 import { RecentesComponent } from './recentes/recentes.component';
 import { ProdutosAmazingComponent } from './produtos-amazing/produtos-amazing.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProdutosAmazingComponent } from './produtos-amazing/produtos-amazing.co
     HistoricoComponent,
     MaisVendidosComponent,
     RecentesComponent,
-    ProdutosAmazingComponent
+    ProdutosAmazingComponent,
+    CategoriaComponent
   ],
   imports: [
     CommonModule,
