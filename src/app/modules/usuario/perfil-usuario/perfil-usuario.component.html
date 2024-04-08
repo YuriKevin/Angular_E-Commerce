@@ -5,6 +5,7 @@
         <div class="center"><p>Email: {{this.usuario.email}}</p></div>
         <div class="center"><p>Créditos: R$ {{this.usuario.credito}}</p></div>
         <div class="atualizar center"><button [routerLink]="['/atualizarDados']">Atualizar dados</button></div>
+        <div class="atualizar center"><button [routerLink]="['/atualizarSenhaUsuario']">Atualizar senha</button></div>
         <div class="atualizar center"><button [routerLink]="['/creditos']">Recarregar créditos</button></div>
     </div>
     <div class="compras">
@@ -29,6 +30,7 @@
                     <div class="botoes">
                         <button class="green" *ngIf="!produto.avaliado" (click)="realizarAvaliacao(produto)">Avaliar</button>
                         <button class="red" *ngIf="!produto.cancelado">Cancelar/Reembolso</button>
+                        <button class="red" *ngIf="produto.cancelado">Compra cancelada</button>
                     </div>
                 </div>
             </ng-container>
