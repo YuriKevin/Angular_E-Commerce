@@ -22,6 +22,7 @@ export class CadastrarProdutoComponent {
   detalhes:DetalhesProduto[] = [];
   detalheTitulo:string = '';
   detalheDescricao:string ='';
+  categorias:boolean = false;
 
   @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
@@ -38,6 +39,17 @@ export class CadastrarProdutoComponent {
     this.detalhes.push(novoDetalhe);
     this.detalheTitulo = '';
     this.detalheDescricao = '';
+  }
+
+  removerDetalhe(detalhe:DetalhesProduto){
+    const indice = this.detalhes.indexOf(detalhe);
+    if (indice !== -1) {
+        this.imagens.splice(indice, 1);
+    }
+  }
+
+  removerImagem(indice:number){
+    this.imagens.splice(indice, 1);
   }
 
   marcarDisponibilidade(){
@@ -95,5 +107,19 @@ export class CadastrarProdutoComponent {
         this.feedbackComponent.open("Ocorreu um erro cadastrar.", true)
       }
     });
+  }
+
+  selecionarCategoria(categoria:string){
+    this.categoria = categoria;
+    this.mostrarCategorias();
+  }
+
+  mostrarCategorias(){
+    if(this.categorias == false){
+      this.categorias = true;
+    }
+    else{
+      this.categorias = false;
+    }
   }
 }
