@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="container">
+    <div class="geral" *ngIf="produto">
+        <div class="titulo">
+            <h1>Atualizar produto</h1>
+        </div>
+        <div class="cadastro">
+            <div class="campo">
+                <h2>Título</h2>
+                <input type="text" [(ngModel)]="produto.titulo">
+            </div>
+            <div class="campo">
+                <h2>Valor</h2>
+                <input type="text" [(ngModel)]="produto.valor">
+            </div>
+            <div class="campo">
+                <h2>Quantidade</h2>
+                <input type="number" [(ngModel)]="produto.quantidade">
+            </div>
+            <div class="campo">
+                <h2>Categoria</h2>
+                <input type="text" [(ngModel)]="produto.categoria">
+            </div>
+            <div class="campo disponivel">
+                <h2 *ngIf="produto.disponivel">Disponível</h2>
+                <h2 *ngIf="!produto.disponivel">Indisponível</h2>
+                <button class="red" *ngIf="!produto.disponivel" (click)="marcarDisponibilidade()">Alterar</button>
+                <button class="green" *ngIf="produto.disponivel" (click)="marcarDisponibilidade()">Alterar</button>
+            </div>
+            <div class="logo">
+                <div class="input-logo center">
+                    <label for="fileInput" class="label-customizada">
+                        Imagem (máximo 6)
+                    </label>
+                    <input  id="fileInput" type="file" (change)="transformarLogoStringBase64($event)" hidden>
+                </div>
+                <div class="imagens">
+                    <div class="quadrado"><img *ngIf="produto.imagens[0]" [src]="produto.imagens[0]" (click)="removerImagem(0)" class="remover"></div>
+                    <div class="quadrado"><img *ngIf="produto.imagens[1]" [src]="produto.imagens[1]" (click)="removerImagem(1)"></div>
+                    <div class="quadrado"><img *ngIf="produto.imagens[2]" [src]="produto.imagens[2]" (click)="removerImagem(2)"></div>
+                    <div class="quadrado"><img *ngIf="produto.imagens[3]" [src]="produto.imagens[3]" (click)="removerImagem(3)"></div>
+                    <div class="quadrado"><img *ngIf="produto.imagens[4]" [src]="produto.imagens[4]" (click)="removerImagem(4)"></div>
+                    <div class="quadrado"><img *ngIf="produto.imagens[5]" [src]="produto.imagens[5]" (click)="removerImagem(5)"></div>
+                </div>
+            </div>
+            <div class="detalhes-container" *ngFor="let detalhe of produto.detalhes">
+                <div class="especificacoes">
+                    <div class="center nome"><input type="text" [(ngModel)]="detalhe.titulo"></div>
+                    <div class="center descricao"><input type="text" [(ngModel)]="detalhe.descricao"></div>
+                </div>
+                <div class="remover-btn">
+                    <button (click)="removerDetalhe(detalhe)">Remover</button>
+                </div>
+            </div>
+            <div class="detalhes-input">
+                <input type="text" class="titulo-detalhes" placeholder="Título" [(ngModel)]="detalheTitulo">
+                <input type="text" class="descricao-detalhes" placeholder="Descrição" [(ngModel)]="detalheDescricao">
+                <button (click)="adicionarDetalhe()">Adicionar</button>
+            </div>
+            <div class="confirmar">
+                <button (click)="atualizar()">Atualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-feedback></app-feedback>
+<app-footer></app-footer>
