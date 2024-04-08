@@ -96,4 +96,21 @@ export class ProdutoCompradoService {
     );
   }
 
+  encontrarProdutoComprado(id:number): Observable<any> {
+    return this.httpClient.get<any>(`${this.apiURL}compra/produto/${id}`)
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Erro desconhecido';
+        if (error.error instanceof ErrorEvent) {
+          // Erro do cliente
+          errorMessage = `Erro: ${error.error.message}`;
+        } else {
+          // Erro do servidor
+          errorMessage = error.error.message;
+        }
+        return throwError(errorMessage);
+      })
+    );
+  }
+
 }
