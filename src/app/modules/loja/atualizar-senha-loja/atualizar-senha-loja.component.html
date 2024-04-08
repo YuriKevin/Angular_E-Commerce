@@ -5,7 +5,7 @@
             <h2>Senha antiga</h2>
         </div>
         <div class="entrada">
-            <input type="text">
+            <input type="text" [(ngModel)]="senhaAntiga">
         </div>
     </div>
     <div class="campo">
@@ -13,7 +13,7 @@
             <h2>Nova senha</h2>
         </div>
         <div class="entrada">
-            <input type="text">
+            <input type="text" [(ngModel)]="senha">
         </div>
     </div>
     <div class="campo">
@@ -21,13 +21,14 @@
             <h2>Confirmar senha</h2>
         </div>
         <div class="entrada">
-            <input type="text">
+            <input type="text" [(ngModel)]="confirmarSenha" (keyup.enter)="atualizarSenha()">
         </div>
     </div>
     <div class="campo">
         <div>
-            <button>Atualizar</button>
+            <button (click)="atualizarSenha()">Atualizar</button>
         </div>
     </div>
 </div>
+<app-feedback></app-feedback>
 <app-footer></app-footer>
