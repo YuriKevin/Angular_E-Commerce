@@ -40,7 +40,7 @@
                     <button (click)="passarArrayCategorias(true)">Próximo</button>
                 </div>
             </div>
-            <div class="categoria" *ngFor="let categoria of arrayCategorias.slice(categoriasInicialSlice, categoriasFinalSlice)">
+            <div [routerLink]="['/categoria', categoria.texto, 0]" class="categoria" *ngFor="let categoria of arrayCategorias.slice(categoriasInicialSlice, categoriasFinalSlice)">
                 <div class="center titulo">
                     <h2>{{categoria.texto}}</h2>
                 </div>
