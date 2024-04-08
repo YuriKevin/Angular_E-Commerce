@@ -40,10 +40,12 @@
 }
 .reembolso button{
     width: 100%;
-    background-color: #c33939;
     color: white;
     height: 30px;
     border: none;
+}
+.red{
+    background-color: #c33939;
 }
 .reembolso h4{
     margin: 0px;
@@ -62,4 +64,7 @@
     object-fit: contain;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+.purple{
+    background-color: #121077;
 }
