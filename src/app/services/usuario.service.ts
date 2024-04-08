@@ -123,5 +123,31 @@ export class UsuarioService {
           })
         );
     }
+    atualizarSenha(id:number, senha:string, senhaAntiga:string): Observable<any>{
+      const params = new HttpParams()
+      .set('id', id.toString())
+      .set('senha', senha)
+      .set('senhaAntiga', senhaAntiga);
+      return this.httpClient.put(this.apiURL + 'usuario/atualizarSenha', {}, { params })
+        .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            return throwError('Nenhum usuário encontrado');
+          } else if(error.status === 400) {
+            return throwError('Usuário ou senha incorretos');
+          }
+          else {
+            let errorMessage = 'Erro ao carregar usuário';
+            if (error.error instanceof ErrorEvent) {
+              errorMessage = `Erro no cliente: ${error.error.message}`;
+            } else {
+              errorMessage = `Erro no servidor, tente novamente mais tade.`;
+              errorMessage = `Erro no servidor, tente novamente mais tade: ${error.status}, `;
+            }
+            return throwError(errorMessage);
+          }
+        })
+      );
+    }
 
 }
