@@ -1,0 +1,12 @@
+<app-header></app-header>
+<app-listar [titulo]="palavraPesquisada">
+    <ng-container *ngFor="let produto of produtos">
+        <app-produto [produto]="produto"></app-produto>
+    </ng-container>
+</app-listar>
+<div *ngIf="mostrarPaginacao" class="paginacao center">
+    <button (click)="mudarPagina(false)">Anterior</button>
+    <p>página: {{this.numeroPaginaUsuario}}</p>
+    <button (click)="mudarPagina(true)">Próximo</button>
+</div>
+<app-footer></app-footer>
