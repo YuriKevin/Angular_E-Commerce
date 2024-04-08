@@ -35,3 +35,20 @@
     border: none;
     background-color: #171592;
 }
+.categorias{
+    display: block;
+}
+.categoria{
+    width: 100%;
+}
+.remover-btn{
+    width: 100%;
+}
+.remover-btn button{
+    margin-bottom: 20px;
+    height: 40px;
+    width: 220px;
+    color: white;
+    border: none;
+    background-color: #171592;
+}
