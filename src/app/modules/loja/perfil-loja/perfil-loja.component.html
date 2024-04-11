@@ -18,6 +18,9 @@
     <div class="center">
         <button [routerLink]="['/adicionarCategoria']">Adicionar categoria</button>
     </div>
+    <div class="center">
+        <button [routerLink]="['/cadastrarProduto']">Adicionar produto</button>
+    </div>
 </div>
 <app-secao *ngIf="maisVendidos" [titulo]="'Mais vendidos'" [produtos]="maisVendidos"></app-secao>
 <div class="categorias" *ngFor="let categoria of categorias">
