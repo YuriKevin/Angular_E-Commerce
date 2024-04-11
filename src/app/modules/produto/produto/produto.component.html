@@ -7,7 +7,8 @@
                 <p>{{produto.titulo.length > 50 ? produto.titulo.slice(0, 50) + '...' : produto.titulo}}</p>
             </div>
             <div class="preco center">
-                <h4>R$ {{produto.valor}}</h4>
+                <h4 *ngIf="produto.disponivel">R$ {{produto.valor}}</h4>
+                <h4 *ngIf="!produto.disponivel">Indisponível</h4>
             </div>
         </div>
 </div>
