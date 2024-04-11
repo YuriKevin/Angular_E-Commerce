@@ -148,7 +148,7 @@ export class ProdutoService {
   }
 
   recentes(): Observable<any> {
-    return this.httpClient.get<Produto>(this.apiURL + 'produto/recentes')
+    return this.httpClient.get<Produto[]>(this.apiURL + 'produto/recentes')
     .pipe(
       catchError((error: HttpErrorResponse) => {
         let errorMessage = 'Erro desconhecido';
