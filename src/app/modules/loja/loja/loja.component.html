@@ -1,4 +1,4 @@
-<div class="loja">
+<div class="loja" [routerLink]="['/loja', loja.id]">
     <div class="logo center">
         <img [src]="loja.logo" alt="logo">
     </div>
@@ -14,7 +14,6 @@
             <img *ngIf="loja.avaliacao >= 3.7" src="../../../../assets/estrela_amazing.png" alt="">
             <img *ngIf="loja.avaliacao >= 4.7" src="../../../../assets/estrela_amazing.png" alt="">
             <p *ngIf="loja.avaliacao>=0.9">Avaliação: {{loja.avaliacao}}</p>
-           
         </div>
         <div class="vendidos">
             <p>{{loja.quantidadeVendida}} vendidos</p>
