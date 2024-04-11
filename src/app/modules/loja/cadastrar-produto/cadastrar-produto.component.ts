@@ -1,17 +1,19 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DetalhesProduto } from 'src/app/interfaces/detalhes-produto';
 import { FormsModule } from '@angular/forms';
 import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 import { LojaService } from 'src/app/services/loja.service';
 import { Router } from '@angular/router';
 import { Produto } from 'src/app/interfaces/produto';
+import { Loja } from 'src/app/interfaces/loja';
 
 @Component({
   selector: 'app-cadastrar-produto',
   templateUrl: './cadastrar-produto.component.html',
   styleUrls: ['../cadastrar-loja/cadastrar-loja.component.css','./cadastrar-produto.component.css']
 })
-export class CadastrarProdutoComponent {
+export class CadastrarProdutoComponent implements OnInit{
+  loja!:Loja;
   titulo!:string;
   valor!:number;
   quantidade!:number;
@@ -28,6 +30,13 @@ export class CadastrarProdutoComponent {
 
   constructor(private lojaService:LojaService, private router:Router){
 
+  }
+
+  ngOnInit(): void {
+    this.loja = this.lojaService.getLoja();
+    if(!this.loja){
+      this.router.navigate(['/loginLoja']);
+    }
   }
 
   adicionarDetalhe(){
@@ -104,7 +113,7 @@ export class CadastrarProdutoComponent {
         this.router.navigate(['/especificacoes/' + produto.id]);
       },
       error: (error) => {
-        this.feedbackComponent.open("Ocorreu um erro cadastrar.", true)
+        this.feedbackComponent.open(error, true)
       }
     });
   }
