@@ -21,7 +21,6 @@ export class AtualizarSenhaLojaComponent {
 
   ngOnInit(): void {
       this.loja = this.lojaService.getLoja();
-      console.log(this.loja);
       if(!this.loja){
         this.router.navigate(['/loginLoja']);
       }
@@ -42,7 +41,7 @@ export class AtualizarSenhaLojaComponent {
       },
       error: (error) => {
         console.log(error);
-        this.feedbackComponent.open("Ocorreu um erro ao se conectar.", true)
+        this.feedbackComponent.open(error, true)
       }
     });
   }
