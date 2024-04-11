@@ -11,7 +11,6 @@ import { ListarLojasComponent } from './modules/loja/listar-lojas/listar-lojas.c
 import { LojaComponent } from './modules/loja/loja/loja.component';
 import { CadastrarLojaComponent } from './modules/loja/cadastrar-loja/cadastrar-loja.component';
 import { CadastrarProdutoComponent } from './modules/loja/cadastrar-produto/cadastrar-produto.component';
-import { PerfilComponent } from './modules/loja/perfil/perfil.component';
 import { ProdutosLojaComponent } from './modules/loja/produtos-loja/produtos-loja.component';
 import { AdicionarCategoriaComponent } from './modules/loja/adicionar-categoria/adicionar-categoria.component';
 import { CarrinhoComponent } from './modules/produto/carrinho/carrinho.component';
@@ -35,6 +34,8 @@ import { PerfilLojaComponent } from './modules/loja/perfil-loja/perfil-loja.comp
 import { AtualizarProdutoComponent } from './modules/loja/atualizar-produto/atualizar-produto.component';
 import { AtualizarLojaComponent } from './modules/loja/atualizar-loja/atualizar-loja.component';
 import { CategoriaComponent } from './modules/produto/categoria/categoria.component';
+import { LojaDtoComponent } from './modules/loja/loja-dto/loja-dto.component';
+import { LojaProdutosComponent } from './modules/loja/loja-produtos/loja-produtos.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -48,7 +49,6 @@ const routes: Routes = [
   { path: 'lojas', component: ListarLojasComponent},
   { path: 'cadastrarLoja', component: CadastrarLojaComponent},
   { path: 'cadastrarProduto', component: CadastrarProdutoComponent},
-  { path: 'perfilLoja/:id', component: PerfilComponent},
   { path: 'produtosLoja/:id/:pagina', component: ProdutosLojaComponent},
   { path: 'adicionarCategoria', component: AdicionarCategoriaComponent},
   { path: 'carrinho', component: CarrinhoComponent},
@@ -72,6 +72,8 @@ const routes: Routes = [
   { path: 'atualizarLoja', component: AtualizarLojaComponent},
   { path: 'atualizarProduto/:id', component: AtualizarProdutoComponent},
   { path: 'categoria/:palavra/:pagina', component: CategoriaComponent},
+  { path: 'loja/:id', component: LojaDtoComponent},
+  { path: 'produtos/:loja/:id/:pagina', component: LojaProdutosComponent},
   { path: '**', redirectTo: 'notFound' },
 ];
 
