@@ -5,7 +5,6 @@ import { LojaComponent } from './loja/loja.component';
 import { ListarLojasComponent } from './listar-lojas/listar-lojas.component';
 import { CadastrarLojaComponent } from './cadastrar-loja/cadastrar-loja.component';
 import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto.component';
-import { PerfilComponent } from './perfil/perfil.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { ProdutosLojaComponent } from './produtos-loja/produtos-loja.component';
@@ -16,6 +15,8 @@ import { AtualizarSenhaLojaComponent } from './atualizar-senha-loja/atualizar-se
 import { PerfilLojaComponent } from './perfil-loja/perfil-loja.component';
 import { AtualizarProdutoComponent } from './atualizar-produto/atualizar-produto.component';
 import { AtualizarLojaComponent } from './atualizar-loja/atualizar-loja.component';
+import { LojaDtoComponent } from './loja-dto/loja-dto.component';
+import { LojaProdutosComponent } from './loja-produtos/loja-produtos.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,6 @@ import { AtualizarLojaComponent } from './atualizar-loja/atualizar-loja.componen
     ListarLojasComponent,
     CadastrarLojaComponent,
     CadastrarProdutoComponent,
-    PerfilComponent,
     ProdutosLojaComponent,
     AdicionarCategoriaComponent,
     VendasComponent,
@@ -31,7 +31,9 @@ import { AtualizarLojaComponent } from './atualizar-loja/atualizar-loja.componen
     AtualizarSenhaLojaComponent,
     PerfilLojaComponent,
     AtualizarProdutoComponent,
-    AtualizarLojaComponent
+    AtualizarLojaComponent,
+    LojaDtoComponent,
+    LojaProdutosComponent
   ],
   imports: [
     CommonModule,
@@ -44,13 +46,14 @@ import { AtualizarLojaComponent } from './atualizar-loja/atualizar-loja.componen
     ListarLojasComponent,
     CadastrarLojaComponent,
     CadastrarProdutoComponent,
-    PerfilComponent,
     ProdutosLojaComponent,
     AdicionarCategoriaComponent,
     VendasComponent,
     LoginLojaComponent,
     AtualizarSenhaLojaComponent,
-    PerfilLojaComponent
+    PerfilLojaComponent,
+    LojaDtoComponent,
+    LojaProdutosComponent
   ]
 })
 export class LojaModule { }
