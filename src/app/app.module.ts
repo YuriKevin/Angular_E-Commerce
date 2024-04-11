@@ -8,7 +8,6 @@ import { LojaComponent } from './modules/loja/loja/loja.component';
 import { CadastrarLojaComponent } from './modules/loja/cadastrar-loja/cadastrar-loja.component';
 import { CadastrarProdutoComponent } from './modules/loja/cadastrar-produto/cadastrar-produto.component';
 import { FormsModule } from '@angular/forms';
-import { PerfilComponent } from './modules/loja/perfil/perfil.component';
 import { ProdutosLojaComponent } from './modules/loja/produtos-loja/produtos-loja.component';
 import { AdicionarCategoriaComponent } from './modules/loja/adicionar-categoria/adicionar-categoria.component';
 import { CreditosComponent } from './modules/usuario/creditos/creditos.component';
@@ -25,6 +24,8 @@ import { AtualizarDadosComponent } from './modules/usuario/atualizar-dados/atual
 import { PerfilLojaComponent } from './modules/loja/perfil-loja/perfil-loja.component';
 import { AtualizarProdutoComponent } from './modules/loja/atualizar-produto/atualizar-produto.component';
 import { AtualizarLojaComponent } from './modules/loja/atualizar-loja/atualizar-loja.component';
+import { LojaDtoComponent } from './modules/loja/loja-dto/loja-dto.component';
+import { LojaProdutosComponent } from './modules/loja/loja-produtos/loja-produtos.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,6 @@ import { AtualizarLojaComponent } from './modules/loja/atualizar-loja/atualizar-
     LojaComponent,
     CadastrarLojaComponent,
     CadastrarProdutoComponent,
-    PerfilComponent,
     ProdutosLojaComponent,
     AdicionarCategoriaComponent,
     CreditosComponent,
@@ -47,7 +47,9 @@ import { AtualizarLojaComponent } from './modules/loja/atualizar-loja/atualizar-
     AtualizarDadosComponent,
     PerfilLojaComponent,
     AtualizarProdutoComponent,
-    AtualizarLojaComponent
+    AtualizarLojaComponent,
+    LojaDtoComponent,
+    LojaProdutosComponent
   ],
   imports: [
     BrowserModule,
