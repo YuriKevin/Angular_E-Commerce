@@ -20,6 +20,7 @@ import { PaginacaoComponent } from './paginacao/paginacao.component';
         HeaderComponent,
         FooterComponent,
         FeedbackComponent,
+        NotFoundComponent,
         PaginacaoComponent
     ],
     imports: [
