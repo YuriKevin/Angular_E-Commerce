@@ -32,7 +32,6 @@ export class CadastroUsuarioComponent {
     this.feedbackComponent.open("Aguarde enquanto validamos seus dados.", false);
     this.usuarioService.cadastrar(this.email, this.nome, this.senha).subscribe({
       next: (usuario:Usuario) => {
-        this.usuarioService.setUsuario(usuario);
         this.router.navigate(['/loginUsuario', false]);
       },
       error: (error) => {
