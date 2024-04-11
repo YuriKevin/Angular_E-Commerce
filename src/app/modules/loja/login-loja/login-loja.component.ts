@@ -21,18 +21,19 @@ export class LoginLojaComponent {
   login() {
     if(!this.codigoLogin || !this.senha){
       this.feedbackComponent.open("Preencha todos os campos", true);
-      return;
     }
-    this.feedbackComponent.open("Aguarde enquanto validamos seus dados.", false);
-    this.lojaService.login(this.codigoLogin, this.senha).subscribe({
-      next: (loja:Loja) => {
-        this.lojaService.setLoja(loja);
-        this.router.navigate(['']);
-      },
-      error: (error) => {
-        this.feedbackComponent.open("Ocorreu um erro ao se conectar.", true)
-      }
-    });
+    else{
+      this.feedbackComponent.open("Aguarde enquanto validamos seus dados.", false);
+      this.lojaService.login(this.codigoLogin, this.senha).subscribe({
+        next: (loja:Loja) => {
+          this.lojaService.setLoja(loja);
+          this.router.navigate(['']);
+        },
+        error: (error) => {
+          this.feedbackComponent.open(error, true)
+        }
+      });
+    }
   }
 
 }

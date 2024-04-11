@@ -45,7 +45,7 @@ export class LoginUsuarioComponent implements OnInit{
         }
       },
       error: (error) => {
-        this.feedbackComponent.open("Ocorreu um erro ao se conectar.", true)
+        this.feedbackComponent.open(error, true)
       }
     });
   }

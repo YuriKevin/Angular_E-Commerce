@@ -65,7 +65,7 @@ export class CadastrarLojaComponent {
         this.router.navigate(['/loginLoja']);
       },
       error: (error) => {
-        this.feedbackComponent.open("Ocorreu um erro ao se cadastrar.", true)
+        this.feedbackComponent.open(error, true)
       }
     });
   }

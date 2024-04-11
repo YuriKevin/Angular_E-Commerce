@@ -29,10 +29,9 @@ export class EspecificacoesComponent implements OnInit{
         next: (produto:Produto) => {
           this.produto = produto;
           this.imagemEscolhida = produto.imagens[0];
-          console.log (this.produto);
         },
         error: (error) => {
-          this.feedbackComponent.open("Ocorreu um ao consultar os dados.", true)
+          this.feedbackComponent.open(error, true);
         }
       });
     }

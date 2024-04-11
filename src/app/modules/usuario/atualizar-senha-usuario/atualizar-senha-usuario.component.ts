@@ -40,8 +40,7 @@ export class AtualizarSenhaUsuarioComponent implements OnInit{
         this.router.navigate(['/perfilUsuario']);
       },
       error: (error) => {
-        console.log(error);
-        this.feedbackComponent.open("Ocorreu um erro ao se conectar.", true)
+        this.feedbackComponent.open(error, true)
       }
     });
   }
