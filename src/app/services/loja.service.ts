@@ -24,15 +24,6 @@ export class LojaService {
   }
 
   constructor(private httpClient: HttpClient, private router:Router) {
-    this.login(1111, "12345").subscribe({
-      next: (loja:Loja) => {
-        this.setLoja(loja);
-        console.log("funcionou");
-      },
-      error: (error) => {
-        console.log("error");
-      }
-    });
 
   }
 
@@ -237,7 +228,7 @@ export class LojaService {
 
   adicionarCategoria(id:number, titulo:string, idsProdutos:number[]): Observable<any>{
     const body = { titulo, idsProdutos };
-    return this.httpClient.put(`${this.apiURL}loja/adicionarCategoria/${id}`, body)
+    return this.httpClient.post(`${this.apiURL}categoria/${id}`, body)
       .pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 404) {
@@ -260,7 +251,7 @@ export class LojaService {
   }
 
   removerCategoria(lojaId:number, categoriaId:number): Observable<any>{
-    return this.httpClient.delete(`${this.apiURL}loja/removerCategoria/${lojaId}/${categoriaId}`)
+    return this.httpClient.delete(`${this.apiURL}categoria/${lojaId}/${categoriaId}`)
       .pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 404) {
@@ -282,8 +273,44 @@ export class LojaService {
     );
   }
 
-  listarCategoriasDeUmaLoja(id:number):Observable<any> {
-    return this.httpClient.get<LojaDTO>(`${this.apiURL}produto/categorias/${id}`)
+  listarCategoriasDeUmaLoja(lojaId:number):Observable<any> {
+    return this.httpClient.get<LojaDTO>(`${this.apiURL}categoria/categorias/${lojaId}`)
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Erro desconhecido';
+        if (error.error instanceof ErrorEvent) {
+          // Erro do cliente
+          errorMessage = `Erro: ${error.error.message}`;
+        } else {
+          // Erro do servidor
+          errorMessage = error.error.message;
+        }
+        return throwError(errorMessage);
+      })
+    );
+  }
+
+  maisVendidosDeUmaLoja(lojaId:number, pagina:number): Observable<any> {
+    const params = new HttpParams()
+    .set('pagina', pagina.toString());
+    return this.httpClient.get<LojaDTO>(`${this.apiURL}produto/loja/${lojaId}`, { params } )
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'Erro desconhecido';
+        if (error.error instanceof ErrorEvent) {
+          // Erro do cliente
+          errorMessage = `Erro: ${error.error.message}`;
+        } else {
+          // Erro do servidor
+          errorMessage = error.error.message;
+        }
+        return throwError(errorMessage);
+      })
+    );
+  }
+
+  encontrarPorId(lojaId:number):Observable<any> {
+    return this.httpClient.get<LojaDTO>(`${this.apiURL}loja/${lojaId}`)
     .pipe(
       catchError((error: HttpErrorResponse) => {
         let errorMessage = 'Erro desconhecido';
