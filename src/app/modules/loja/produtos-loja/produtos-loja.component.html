@@ -9,8 +9,7 @@
 <app-listar>
     <div class="editar" *ngFor="let produto of produtos">
         <app-produto [produto]="produto"></app-produto>
-        <button class="green">Editar</button>
-        <button class="red">Excluir</button>
+        <button class="green" [routerLink]="['/atualizarProduto', produto.id]">Editar</button>
     </div>
 </app-listar>
 <div *ngIf="mostrarPaginacao" class="paginacao center">
