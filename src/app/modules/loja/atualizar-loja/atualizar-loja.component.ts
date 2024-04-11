@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Loja } from 'src/app/interfaces/loja';
 import { LojaService } from 'src/app/services/loja.service';
+import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 
 @Component({
   selector: 'app-atualizar-loja',
@@ -13,13 +14,14 @@ export class AtualizarLojaComponent implements OnInit{
   nome!:string;
   logo!:string;
   loja!: Loja;
+  @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
   constructor(private lojaService:LojaService, private router:Router){}
 
   ngOnInit(): void {
       this.loja = this.lojaService.getLoja();
       if(!this.loja){
-
+        this.router.navigate(['/loginLoja']);
       }
       this.codigoLogin = this.loja.codigoLogin;
       this.nome = this.loja.nome;
@@ -53,6 +55,7 @@ export class AtualizarLojaComponent implements OnInit{
   }
 
   atualizar(){
+    this.feedbackComponent.open("Aguarde enquanto validamos os dados.", false);
     const codigoLogin = this.codigoLogin;
     const nome = this.nome;
     const logo = this.logo;
@@ -64,7 +67,7 @@ export class AtualizarLojaComponent implements OnInit{
           this.router.navigate(['/perfilLoja']);
         },
         error: (error) => {
-          console.log(error);
+          this.feedbackComponent.open(error, true);
         }
       });
   }

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Categoria } from 'src/app/interfaces/categoria';
 import { Loja } from 'src/app/interfaces/loja';
 import { Produto } from 'src/app/interfaces/produto';
 import { LojaService } from 'src/app/services/loja.service';
 import { ProdutoService } from 'src/app/services/produto.service';
+import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 
 @Component({
   selector: 'app-adicionar-categoria',
@@ -21,23 +22,32 @@ export class AdicionarCategoriaComponent implements OnInit{
   numeroPaginaUsuario:number = 1;
   categoria!:Categoria;
   idsProdutos:number[] = [];
+  @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
   constructor(private lojaService:LojaService, private produtoService:ProdutoService, private router:Router){}
 
   ngOnInit(): void {
       this.loja = this.lojaService.getLoja();
+      if(!this.loja){
+        this.router.navigate(['/loginLoja']);
+      }
   } 
 
   pesquisar(){
     if(this.tituloInput){
+      this.feedbackComponent.open("Carregando...", false);
       this.produtoService.pesquisarProdutosDeUmaLojaPorTitulo(this.loja.id, this.tituloInput, this.pagina).subscribe({
         next: (produtos:Produto[]) => {
           this.produtos = produtos;
+          this.feedbackComponent.close();
         },
         error: (error) => {
-          console.log(error);
+          this.feedbackComponent.open(error, true);
         }
       });
+  }
+  else{
+    this.feedbackComponent.open("Digite alguma coisa para pesquisar.", true);
   }
   }
 
@@ -71,19 +81,24 @@ export class AdicionarCategoriaComponent implements OnInit{
   }
 
   adicionarCategoria(){
-    this.produtosAdicionados.forEach(produto => {
-      this.idsProdutos.push(produto.id);
-    });
-    console.log(this.idsProdutos);
-    
-    this.lojaService.adicionarCategoria(this.loja.id, this.nomeCategoria, this.idsProdutos).subscribe({
-      next: () => {
-        this.router.navigate(['/perfilLoja']);
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    });
+    if(!this.nomeCategoria || !this.produtosAdicionados || this.produtosAdicionados.length==0){
+      this.feedbackComponent.open("Certifique-se de ter atribuído título e produtos a categoria.", true);
+    }
+    else{
+      this.produtosAdicionados.forEach(produto => {
+        this.idsProdutos.push(produto.id);
+      });
+      this.feedbackComponent.open("Aguarde enquanto validamos os dados...", false);
+      this.lojaService.adicionarCategoria(this.loja.id, this.nomeCategoria, this.idsProdutos).subscribe({
+        next: () => {
+          this.router.navigate(['/perfilLoja']);
+        },
+        error: (error) => {
+          console.log(error);
+          this.feedbackComponent.open(error, true);
+        }
+      });
+    }
   }
     
 

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Loja } from 'src/app/interfaces/loja';
 import { Produto } from 'src/app/interfaces/produto';
+import { LojaService } from 'src/app/services/loja.service';
 import { ProdutoService } from 'src/app/services/produto.service';
+import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 
 @Component({
   selector: 'app-produtos-loja',
@@ -15,10 +18,22 @@ export class ProdutosLojaComponent implements OnInit{
   numeroPaginaUsuario!:number;
   tituloInput!:string;
   mostrarPaginacao: boolean = true;
+  loja!:Loja;
+  @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
-  constructor(private route: ActivatedRoute, private produtoService:ProdutoService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private lojaService:LojaService, private produtoService:ProdutoService, private router: Router) { }
    
+  ngAfterViewInit(): void {
+    if (this.feedbackComponent) {
+      this.feedbackComponent.open("Carregando.", false);
+    }
+  }
+
   ngOnInit(): void {
+    this.loja = this.lojaService.getLoja();
+    if(!this.loja){
+      this.router.navigate(['/loginLoja']);
+    }
     this.route.params.subscribe(params => {
       this.lojaId = params['id'];
       this.pagina = + params['pagina'];
@@ -27,13 +42,13 @@ export class ProdutosLojaComponent implements OnInit{
       this.produtoService.pesquisarProdutosDeUmaLoja(this.lojaId, this.pagina).subscribe({
         next: (produtos:Produto[]) => {
           this.produtos = produtos;
-          console.log(this.produtos);
+          this.feedbackComponent.close();
           if(this.produtos.length<18){
             this.mostrarPaginacao=false;
           }
         },
         error: (error) => {
-          console.log(error);
+          this.feedbackComponent.open(error, true);
         }
       });
     });
@@ -42,13 +57,14 @@ export class ProdutosLojaComponent implements OnInit{
 
   pesquisar(){
     if(this.tituloInput){
+      this.feedbackComponent.open("Carregando.", false);
       this.produtoService.pesquisarProdutosDeUmaLojaPorTitulo(this.lojaId, this.tituloInput, this.pagina).subscribe({
         next: (produtos:Produto[]) => {
           this.produtos = produtos;
-          console.log(this.produtos);
+          this.feedbackComponent.close();
         },
         error: (error) => {
-          console.log(error);
+          this.feedbackComponent.open(error, true);
         }
       });
   }

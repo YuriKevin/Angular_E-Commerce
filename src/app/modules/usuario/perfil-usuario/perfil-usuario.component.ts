@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProdutoComprado } from 'src/app/interfaces/produto-comprado';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { ProdutoCompradoService } from 'src/app/services/produto-comprado.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 
 
 @Component({
@@ -19,13 +20,13 @@ export class PerfilUsuarioComponent implements OnInit{
   valorAvaliacao!: number;
   pagina:number = 0;
   mostrarPaginacao: boolean = true;
+  @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
   constructor(private router:Router, private usuarioService:UsuarioService, private produtoCompradoService:ProdutoCompradoService){
 
   }
 
   ngOnInit(): void {
-    
       this.usuario = this.usuarioService.getUsuario();
       if(!this.usuario){
         this.router.navigate(['/loginUsuario', false]);
@@ -39,7 +40,6 @@ export class PerfilUsuarioComponent implements OnInit{
           }
         },
         error: (error) => {
-          console.log(error);
         }
       });
       
@@ -51,16 +51,15 @@ export class PerfilUsuarioComponent implements OnInit{
   }
 
   avaliarProduto(){
+    this.avaliacao = false;
+    this.feedbackComponent.open("Avaliando o produto.", false);
     this.produtoCompradoService.avaliarProduto(this.produtoAvaliado.id, this.valorAvaliacao).subscribe({
       next: () => {
         this.produtoAvaliado.avaliado = true;
-        console.log("Funcionou");
-        this.avaliacao = false;
-
+        this.feedbackComponent.open("Produto avaliado com sucesso.", true);
       },
       error: (error) => {
-        this.avaliacao = false;
-        console.log(error);
+        this.feedbackComponent.open(error, true);
       }
     });
   }
@@ -68,14 +67,15 @@ export class PerfilUsuarioComponent implements OnInit{
   carregarMaisCompras(avancar:boolean){
     if(avancar){
       if(this.produtosComprados.length==18){
+        this.feedbackComponent.open("Carregando.", false);
         this.pagina++;
         this.produtoCompradoService.carregarCompras(this.usuario.id, this.pagina).subscribe({
           next: (produtos:ProdutoComprado[]) => {
             this.produtosComprados = produtos;
-            console.log(this.produtosComprados);
+            this.feedbackComponent.close();
           },
           error: (error) => {
-            console.log(error);
+            this.feedbackComponent.open(error, true);
           }
         });
       }
@@ -83,13 +83,14 @@ export class PerfilUsuarioComponent implements OnInit{
     else{
       if(this.pagina!=0){
         this.pagina--;
+        this.feedbackComponent.open("Carregando.", false);
         this.produtoCompradoService.carregarCompras(this.usuario.id, this.pagina).subscribe({
           next: (produtos:ProdutoComprado[]) => {
             this.produtosComprados = produtos;
-            console.log(this.produtosComprados);
+            this.feedbackComponent.close();
           },
           error: (error) => {
-            console.log(error);
+            this.feedbackComponent.open(error, true);
           }
         });
       }

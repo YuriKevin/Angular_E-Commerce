@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Produto } from 'src/app/interfaces/produto';
 import { ProdutoService } from 'src/app/services/produto.service';
+import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 
 @Component({
   selector: 'app-pesquisar',
@@ -15,9 +16,16 @@ export class PesquisarComponent {
   produtos!:Produto[];
   numeroPaginaUsuario!:number;
   mostrarPaginacao: boolean = true;
+  @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent
 
   constructor(private route: ActivatedRoute, private produtoService:ProdutoService, private router: Router) { }
-
+  
+  ngAfterViewInit(): void {
+    if (this.feedbackComponent) {
+      this.feedbackComponent.open("Carregando.", false);
+    }
+  }
+  
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.palavraPesquisada = params['palavra'];
@@ -27,12 +35,13 @@ export class PesquisarComponent {
       this.produtoService.pesquisarProdutos(this.palavraPesquisada, this.pagina).subscribe({
         next: (produtos:Produto[]) => {
           this.produtos = produtos;
+          this.feedbackComponent.close();
           if(this.produtos.length<18){
             this.mostrarPaginacao=false;
           }
         },
         error: (error) => {
-          //feedback
+          this.feedbackComponent.open(error, true);
         }
       });
     });

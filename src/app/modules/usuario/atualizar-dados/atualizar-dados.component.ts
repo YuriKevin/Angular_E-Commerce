@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 
 @Component({
   selector: 'app-atualizar-dados',
@@ -12,6 +13,7 @@ export class AtualizarDadosComponent implements OnInit{
   usuario!: Usuario;
   email!:string;
   nome!:string;
+  @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
   constructor(private usuarioService:UsuarioService, private router:Router){}
 
@@ -22,10 +24,10 @@ export class AtualizarDadosComponent implements OnInit{
       }
       this.nome = this.usuario.nome;
       this.email = this.usuario.email;
-
   }
 
   atualizarDados(){
+    this.feedbackComponent.open("Aguarde enquanto validamos seus dados.", false);
     const email = this.email;
     const nome = this.nome;
       this.usuarioService.atualizarDados(this.usuario.id, this.nome, this.email).subscribe({
@@ -35,7 +37,7 @@ export class AtualizarDadosComponent implements OnInit{
           this.router.navigate(['/perfilUsuario']);
         },
         error: (error) => {
-          console.log(error);
+          this.feedbackComponent.open(error, true);
         }
       });
   }

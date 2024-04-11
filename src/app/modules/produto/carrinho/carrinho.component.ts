@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from 'src/app/interfaces/produto';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { ProdutoCompradoService } from 'src/app/services/produto-comprado.service';
 import { ProdutoService } from 'src/app/services/produto.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 
 @Component({
   selector: 'app-carrinho',
@@ -15,6 +16,7 @@ export class CarrinhoComponent implements OnInit{
   compraRealizada:boolean = false;
   produtos!:Produto[];
   usuario!:Usuario;
+  @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
   constructor(private router:Router, private produtoService: ProdutoService, private usuarioService:UsuarioService,private produtoCompradoService: ProdutoCompradoService){}
 
@@ -32,13 +34,14 @@ export class CarrinhoComponent implements OnInit{
       this.router.navigate(['/loginUsuario', true]);
     }
     else if(this.produtos && this.produtos.length != 0){
-      
+      this.feedbackComponent.open("Aguarde enquanto processamos a compra.", false);
       this.produtoCompradoService.novaCompra(this.usuario.id, this.produtos).subscribe({
-        next: (produto:Produto) => {
+        next: () => {
+          this.feedbackComponent.close();
           this.compraRealizada = true;
         },
         error: (error) => {
-          console.log(error);
+          this.feedbackComponent.open(error, true);
         }
       });
     }
