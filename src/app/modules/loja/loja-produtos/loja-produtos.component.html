@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="titulo-pesquisa">
+    <div class="titulo"><h1>Produtos {{this.nomeLoja}}</h1></div>
+    <div class="center pesquisar">
+        <h2>Pesquisar:</h2>
+        <input type="text" [(ngModel)]="tituloInput" (keyup.enter)="pesquisar()">
+    </div>
+</div>
+<app-listar>
+    <div *ngFor="let produto of produtos">
+        <app-produto [produto]="produto"></app-produto>
+    </div>
+</app-listar>
+<div *ngIf="mostrarPaginacao" class="paginacao center">
+    <button (click)="mudarPagina(false)">Anterior</button>
+    <p>página: {{this.numeroPaginaUsuario}}</p>
+    <button (click)="mudarPagina(true)">Próximo</button>
+</div>
+<app-feedback></app-feedback>
+<app-footer></app-footer>
