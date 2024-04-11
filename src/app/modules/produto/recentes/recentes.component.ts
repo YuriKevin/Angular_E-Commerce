@@ -13,7 +13,7 @@ export class RecentesComponent implements OnInit{
   constructor(private produtoService:ProdutoService){}
 
   ngOnInit(): void {
-    this.produtoService.maisVendidos().subscribe({
+    this.produtoService.recentes().subscribe({
       next: (produtos:Produto[]) => {
         this.produtos = produtos;
       },
