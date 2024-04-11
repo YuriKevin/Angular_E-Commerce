@@ -99,7 +99,7 @@ export class CadastrarProdutoComponent implements OnInit{
   }
 
   cadastrar(){
-    if(!this.titulo || !this.valor || !this.quantidade || !this.categoria || !this.imagens || !this.detalhes){
+    if(!this.titulo || !this.valor || !this.quantidade || !this.categoria || !this.imagens || this.imagens.length == 0){
       this.feedbackComponent.open("Preencha todos os campos", true);
       return;
     }
