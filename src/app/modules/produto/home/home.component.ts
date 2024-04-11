@@ -13,7 +13,47 @@ import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 export class HomeComponent implements OnInit{
   maisVendidos:Produto[] = [];
   produtosEvidencia!:Produto[];
-  
+
+  @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
+
+  constructor(private produtoService:ProdutoService, private router:Router, private usuarioService: UsuarioService){
+
+  }
+
+  ngOnInit(): void {
+    this.produtoService.maisVendidos().subscribe({
+      next: (produtos:Produto[]) => {
+        this.maisVendidos = produtos;
+        console.log(this.maisVendidos);
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+
+    this.produtoService.produtosDestaque().subscribe({
+      next: (produtos:Produto[]) => {
+        this.produtosEvidencia = produtos;
+        console.log(this.produtosEvidencia);
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+    if (window.innerWidth < 650) {
+      this.controleFinalIndices = 1;
+    }
+    else if (window.innerWidth < 915) {
+      this.controleFinalIndices = 2;
+    }
+    else if (window.innerWidth < 1215) {
+      this.controleFinalIndices = 3;
+    }
+    else{
+      this.controleFinalIndices = 4;
+    }
+    this.categoriasFinalSlice= this.controleFinalIndices;
+  }
 
   controleInicioIndices:number = 0;
   controleFinalIndices:number = 4;
@@ -87,46 +127,6 @@ export class HomeComponent implements OnInit{
       }
     }
   }
-  
-  @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
-  constructor(private produtoService:ProdutoService, private router:Router, private usuarioService: UsuarioService){
-
-  }
-
-  ngOnInit(): void {
-    this.produtoService.maisVendidos().subscribe({
-      next: (produtos:Produto[]) => {
-        this.maisVendidos = produtos;
-        console.log(this.maisVendidos);
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    });
-
-    this.produtoService.produtosDestaque().subscribe({
-      next: (produtos:Produto[]) => {
-        this.produtosEvidencia = produtos;
-        console.log(this.produtosEvidencia);
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    });
-    if (window.innerWidth < 650) {
-      this.controleFinalIndices = 1;
-    }
-    else if (window.innerWidth < 915) {
-      this.controleFinalIndices = 2;
-    }
-    else if (window.innerWidth < 1215) {
-      this.controleFinalIndices = 3;
-    }
-    else{
-      this.controleFinalIndices = 4;
-    }
-    this.categoriasFinalSlice= this.controleFinalIndices;
-  }
 
 }
