@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="center infos" *ngIf="loja">
+    <app-loja [loja]="loja"></app-loja>
+</div>
+<div class="menu" *ngIf="loja">
+    <div class="center">
+        <button [routerLink]="['/produtos', this.loja.nome, this.loja.id, 0]">Ir para produtos</button>
+    </div>  
+</div>
+<app-secao *ngIf="maisVendidos" [titulo]="'Mais vendidos'" [produtos]="maisVendidos"></app-secao>
+<div *ngIf="categorias">
+    <div class="categorias" *ngFor="let categoria of categorias">
+        <div class="categoria">
+            <app-secao class="secao" [titulo]="categoria.titulo" [produtos]="categoria.produtos">
+            </app-secao>
+        </div>
+    </div>
+</div>
+<app-feedback></app-feedback>
+<app-footer></app-footer>
