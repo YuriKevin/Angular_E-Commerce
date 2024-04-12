@@ -57,7 +57,11 @@ export class ProdutoService {
   }
 
   produtosDestaque(): Observable<any> {
-    return this.httpClient.get<Produto>(this.apiURL + 'produto/destaques')
+    const numerosIds: number[] = [1, 2, 3];
+    const ids: string = numerosIds.join(',');
+    let params = new HttpParams();
+    params = params.append('ids', ids);
+    return this.httpClient.get<Produto>(this.apiURL + 'produto/destaques', { params })
     .pipe(
       catchError((error: HttpErrorResponse) => {
         let errorMessage = 'Erro desconhecido';
