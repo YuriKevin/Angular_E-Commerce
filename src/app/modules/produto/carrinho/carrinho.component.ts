@@ -16,6 +16,8 @@ export class CarrinhoComponent implements OnInit{
   compraRealizada:boolean = false;
   produtos!:Produto[];
   usuario!:Usuario;
+  valorCompra!:number;
+
   @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
   constructor(private router:Router, private produtoService: ProdutoService, private usuarioService:UsuarioService,private produtoCompradoService: ProdutoCompradoService){}
@@ -23,10 +25,21 @@ export class CarrinhoComponent implements OnInit{
   ngOnInit(): void {
       this.produtos = this.produtoService.getCarrinho();
       this.usuario = this.usuarioService.getUsuario();
+      if(this.produtos){
+        this.calcularValorCompra();
+      }
   }
 
   removerProdutoCarrinho(produto:Produto){
     this.produtoService.removerProdutoCarrinho(produto);
+  }
+
+  calcularValorCompra(){
+    let valorCompra = 0;
+          this.produtos.forEach(produto => {
+            valorCompra += produto.valor;
+          });
+      this.valorCompra = valorCompra;
   }
 
   realizarCompra(){
@@ -35,13 +48,21 @@ export class CarrinhoComponent implements OnInit{
     }
     else if(this.produtos && this.produtos.length != 0){
       this.feedbackComponent.open("Aguarde enquanto processamos a compra.", false);
+      this.produtos.forEach(produto => {
+        if(produto.disponivel!=true){
+          this.feedbackComponent.open("Não é possível comprar produtos que estão indiponíveis.", true);
+          return;
+        }
+      });
       this.produtoCompradoService.novaCompra(this.usuario.id, this.produtos).subscribe({
         next: () => {
           this.feedbackComponent.close();
           this.compraRealizada = true;
+          this.usuario.credito -= this.valorCompra;
         },
         error: (error) => {
           this.feedbackComponent.open(error, true);
+          console.log(error);
         }
       });
     }

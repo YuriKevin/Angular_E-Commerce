@@ -10,6 +10,9 @@
             <button (click)="removerProdutoCarrinho(produto)">Remover</button>
         </div>
     </app-listar>
+    <div class="titulo" *ngIf="valorCompra">
+        <h1>Valor total da compra: R$ {{this.valorCompra}}</h1>
+    </div>
     <div class="pagamento">
         <div>
             <button class="green" (click)="realizarCompra()">Pagar com créditos amazing</button>
