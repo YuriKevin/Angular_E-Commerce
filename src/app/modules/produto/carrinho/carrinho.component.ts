@@ -59,6 +59,7 @@ export class CarrinhoComponent implements OnInit{
           this.feedbackComponent.close();
           this.compraRealizada = true;
           this.usuario.credito -= this.valorCompra;
+          this.produtoService.limparCarrinho();
         },
         error: (error) => {
           this.feedbackComponent.open(error, true);
