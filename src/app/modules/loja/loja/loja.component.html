@@ -7,7 +7,6 @@
             <h3>{{loja.nome}}</h3>
         </div>
         <div class="avaliacao center">
-            <p *ngIf="loja.avaliacao < 0.9">Avaliação baixa | </p>
             <img *ngIf="loja.avaliacao >= 0.9" src="../../../../assets/estrela_amazing.png" alt="">
             <img *ngIf="loja.avaliacao >= 1.7" src="../../../../assets/estrela_amazing.png" alt="">
             <img *ngIf="loja.avaliacao >= 2.7" src="../../../../assets/estrela_amazing.png" alt="">

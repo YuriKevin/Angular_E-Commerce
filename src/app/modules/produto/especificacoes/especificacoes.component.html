@@ -18,7 +18,6 @@
                 <div class="titulo"><h1>{{produto.titulo}}</h1></div>
                 <div class="entregue center"><p [routerLink]="['/loja', produto.lojaId]">Vendido e entregue por <a>{{produto.nomeLoja}}</a></p></div>
                 <div class="avaliacao center">
-                    <p *ngIf="produto.avaliacao < 0.9">Avaliação baixa | </p>
                     <img *ngIf="produto.avaliacao >= 0.9" src="../../../../assets/estrela_amazing.png" alt="">
                     <img *ngIf="produto.avaliacao >= 1.7" src="../../../../assets/estrela_amazing.png" alt="">
                     <img *ngIf="produto.avaliacao >= 2.7" src="../../../../assets/estrela_amazing.png" alt="">
