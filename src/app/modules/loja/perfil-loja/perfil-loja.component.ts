@@ -25,7 +25,7 @@ export class PerfilLojaComponent implements OnInit{
     if(!this.loja){
       this.router.navigate(['/loginLoja']);
     }
-      this.produtoService.maisVendidos().subscribe({
+      this.lojaService.maisVendidosDeUmaLoja(this.loja.id, 0).subscribe({
         next: (produtos:Produto[]) => {
           this.maisVendidos = produtos;
         },
