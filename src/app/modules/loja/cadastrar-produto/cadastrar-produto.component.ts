@@ -40,20 +40,22 @@ export class CadastrarProdutoComponent implements OnInit{
   }
 
   adicionarDetalhe(){
-    const novoDetalhe: DetalhesProduto = {
-      id: null,
-      titulo: this.detalheTitulo,
-      descricao: this.detalheDescricao
-    };
-    this.detalhes.push(novoDetalhe);
-    this.detalheTitulo = '';
-    this.detalheDescricao = '';
+    if(this.detalheTitulo && this.detalheTitulo.length>0 && this.detalheDescricao && this.detalheDescricao.length>0){
+      const novoDetalhe: DetalhesProduto = {
+        id: null,
+        titulo: this.detalheTitulo,
+        descricao: this.detalheDescricao
+      };
+      this.detalhes.push(novoDetalhe);
+      this.detalheTitulo = '';
+      this.detalheDescricao = '';
+    }
   }
 
   removerDetalhe(detalhe:DetalhesProduto){
     const indice = this.detalhes.indexOf(detalhe);
     if (indice !== -1) {
-        this.imagens.splice(indice, 1);
+        this.detalhes.splice(indice, 1);
     }
   }
 
