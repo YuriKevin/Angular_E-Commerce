@@ -62,7 +62,7 @@ export class CarrinhoComponent implements OnInit{
           this.produtoService.limparCarrinho();
         },
         error: (error) => {
-          this.feedbackComponent.open("Saldo insuficiente.", true);
+          this.feedbackComponent.open(error, true);
           console.log(error);
         }
       });
