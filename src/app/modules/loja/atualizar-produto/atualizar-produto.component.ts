@@ -54,20 +54,22 @@ export class AtualizarProdutoComponent implements OnInit{
     }
   }
   adicionarDetalhe(){
-    const novoDetalhe: DetalhesProduto = {
-      id: null,
-      titulo: this.detalheTitulo,
-      descricao: this.detalheDescricao
-    };
-    this.produto.detalhes.push(novoDetalhe);
-    this.detalheTitulo = '';
-    this.detalheDescricao = '';
+    if(this.detalheTitulo && this.detalheTitulo.length>0 && this.detalheDescricao && this.detalheDescricao.length>0){
+      const novoDetalhe: DetalhesProduto = {
+        id: null,
+        titulo: this.detalheTitulo,
+        descricao: this.detalheDescricao
+      };
+      this.produto.detalhes.push(novoDetalhe);
+      this.detalheTitulo = '';
+      this.detalheDescricao = '';
+    }
   }
 
   removerDetalhe(detalhe:DetalhesProduto){
     const indice = this.produto.detalhes.indexOf(detalhe);
     if (indice !== -1) {
-        this.produto.imagens.splice(indice, 1);
+        this.produto.detalhes.splice(indice, 1);
     }
   }
 
@@ -76,7 +78,7 @@ export class AtualizarProdutoComponent implements OnInit{
   }
 
   marcarDisponibilidade(){
-    if(this.produto.disponivel){
+    if(this.produto.disponivel==true){
       this.produto.disponivel = false;
     }
     else{
