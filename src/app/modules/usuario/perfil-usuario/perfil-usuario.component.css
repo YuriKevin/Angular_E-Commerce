@@ -52,8 +52,9 @@
     width: 180px;
     height: auto;
     font-family: Arial, Helvetica, sans-serif;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-bottom: 40px;
+    margin-left: 10px;
 }
 .card .image{
     width: 100%;
