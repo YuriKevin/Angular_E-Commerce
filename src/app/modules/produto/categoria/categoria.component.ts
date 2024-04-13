@@ -38,12 +38,12 @@ export class CategoriaComponent {
   mudarPagina(avancar:boolean){
     if(avancar){
       this.pagina++;
-      this.router.navigate(['/pesquisar', this.palavraPesquisada, this.pagina]);
+      this.router.navigate(['/categoria', this.palavraPesquisada, this.pagina]);
     }
     else{
       if(this.pagina!=0){
         this.pagina--;
-        this.router.navigate(['/pesquisar', this.palavraPesquisada, this.pagina]);
+        this.router.navigate(['/categoria', this.palavraPesquisada, this.pagina]);
       }
     }
   }
