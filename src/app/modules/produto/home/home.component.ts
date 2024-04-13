@@ -13,6 +13,8 @@ import { FeedbackComponent } from 'src/app/shared/feedback/feedback.component';
 export class HomeComponent implements OnInit{
   maisVendidos:Produto[] = [];
   produtosEvidencia!:Produto[];
+  livros!:Produto[];
+  gamesEconsoles!:Produto[];
 
   @ViewChild(FeedbackComponent) feedbackComponent!: FeedbackComponent;
 
@@ -38,6 +40,21 @@ export class HomeComponent implements OnInit{
       },
       error: (error) => {
         console.log(error);
+      }
+    });
+
+    this.produtoService.pesquisarPorCategoria('Games e consoles', 0).subscribe({
+      next: (produtos:Produto[]) => {
+        this.gamesEconsoles = produtos;
+      },
+      error: (error) => {
+      }
+    });
+    this.produtoService.pesquisarPorCategoria('Livros', 0).subscribe({
+      next: (produtos:Produto[]) => {
+        this.livros = produtos;
+      },
+      error: (error) => {
       }
     });
     if (window.innerWidth < 650) {
@@ -127,6 +144,7 @@ export class HomeComponent implements OnInit{
       }
     }
   }
+  
 
 
 }
