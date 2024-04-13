@@ -21,6 +21,10 @@ export class ProdutoService {
   
   constructor(private httpClient: HttpClient, private router:Router) {
   }
+
+  limparCarrinho(): void {
+    this.carrinho = [];
+  }
   
   encontrarPorId(id: number): Observable<any> {
     return this.httpClient.get<Produto>(this.apiURL + 'produto/' + id)
@@ -169,7 +173,7 @@ export class ProdutoService {
   }
 
   produtosAmazing(): Observable<any> {
-    return this.httpClient.get<Produto>(this.apiURL + 'produto/recentes')
+    return this.httpClient.get<Produto>(this.apiURL + 'produto/amazing')
     .pipe(
       catchError((error: HttpErrorResponse) => {
         let errorMessage = 'Erro desconhecido';
