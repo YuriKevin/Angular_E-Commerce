@@ -27,7 +27,7 @@ export class LoginLojaComponent {
       this.lojaService.login(this.codigoLogin, this.senha).subscribe({
         next: (loja:Loja) => {
           this.lojaService.setLoja(loja);
-          this.router.navigate(['']);
+          this.router.navigate(['/perfilLoja']);
         },
         error: (error) => {
           this.feedbackComponent.open(error, true)
