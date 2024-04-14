@@ -1,27 +1,27 @@
-# ECommerce
+# Plataforma de ECommerce baseada na Amazon
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+Front-end com o framework Angular de uma plataforma de E-Commerce baseada na Amazon. Esta aplicação complementa uma API construída em Java com Spring Boot que está em outro repositório do perfil: [clique aqui!](https://github.com/YuriKevin/Spring_E-Commerce)  
 
-## Development server
+## Funcionamento do sistema: 
+[Assista ao vídeo](https://www.youtube.com/watch?v=-Amu7M3hCvQ)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## O que este front-end faz?
+- Realiza um CRUD completo com o servidor, podendo enviar solicitações para: deletar, inserir, atualizar ou requisitar informações (são mais de 70 métodos no back-end);
+- Uma loja consegue personalizar sua página de perfil com seções de produtos;
+- Um usuário possui um carrinho com itens da sua escolha;
+- Possui um design moderno, minimalista e responsivo para mobile ou desktop;
+- Possui um componente (Feedback Componente) exclusivamente dedicado à oferecer feedback para manter o usuário atualizado do que ocorre na aplicação;
+- Transforma as imagens dos usuários em strings na base 64 para salvar no servidor;
+- Usa recursos importantes do framework Angular, como: manipulação de rotas, uso de diretivas estruturais, uso de Observable, reutilização de um componente como filho de outros componentes e com a possibilidade de um OutPut, importação de bilbiotecas como "HTTP" e "Router", entre outras coisas;
+- Confira a lista compelta de funcionalidades do back-end!
 
-## Code scaffolding
+## Como utilizar?
+Primeiro, abra o terminal na pasta da aplicação e digite o comando "npm install";
+Depois, para utilizar esta aplicação, execute-a na porta 4200 (padrão do angular) abrindo a pasta no terminal e executando o comando "ng serve".  
+Não se esqueça de executar o back-end junto! [(back-end)](https://github.com/YuriKevin/Spring_E-Commerce)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Diagrama de Classes
+![Diagrama de classes](diagrama.jpg)
 
-## Build
+### This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
