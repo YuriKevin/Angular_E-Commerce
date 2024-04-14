@@ -5,6 +5,12 @@ Front-end com o framework Angular de uma plataforma de E-Commerce baseada na Ama
 ## Funcionamento do sistema: 
 [Assista ao vídeo](https://www.youtube.com/watch?v=-Amu7M3hCvQ)
 
+## Outros vídeos relacionados:
+[Construção do projeto em 1M](https://www.youtube.com/watch?v=npNiOJuKJeI)  <br>
+[Algoritmo que indica produtos com base no interesse do usuário](https://www.youtube.com/watch?v=GqyikTsfetY)  <br>
+[Algoritmo de responsividade](https://www.youtube.com/watch?v=VdYWJJz7kg4)  <br>
+[Timelapse construção do HTML & CSS](https://www.youtube.com/watch?v=Tjv2n7l7SxY)  <br>
+
 ## O que este front-end faz?
 - Realiza um CRUD completo com o servidor, podendo enviar solicitações para: deletar, inserir, atualizar ou requisitar informações (são mais de 70 métodos no back-end);
 - Uma loja consegue personalizar sua página de perfil com seções de produtos;
